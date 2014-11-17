@@ -21,6 +21,11 @@ $selectViewColor: #6f6f6f;
 	        float:left;
 	        display:block;
 
+            &.selected a {
+	            border-color:#fff;
+	            opacity:1.0;
+            }
+
             a{
                 display:block;
 	            border-style:solid;
@@ -133,7 +138,7 @@ $selectViewColor: #6f6f6f;
 	    line-height:16px;
 	    padding:0 15px;
 	    text-transform:uppercase;
-        color: #6f6f6f;
+        color: #B0B0B0;
     }
 }
 
@@ -184,4 +189,11 @@ $selectViewColor: #6f6f6f;
 	-webkit-border-radius: 10px;
 	border-radius: 10px;
 	opacity:0.7;
+}
+
+@media (max-width: 480px) {
+  .rg-caption p{
+      font-size: 1.5em;
+      line-height: 1em;
+  }
 }

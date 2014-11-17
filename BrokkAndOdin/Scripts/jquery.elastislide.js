@@ -164,9 +164,9 @@
 			
 		    // set the <ul> width
             //TODO: TW Changed
-			//this.$slider.css({
-			//	width	: this.sliderW
-			//});
+			this.$slider.css({
+			    width	: this.sliderW + 40
+			});
 			
 		},
 		_setDim				: function( elW ) {
@@ -288,9 +288,9 @@
 			}
 			
             //TODO: TW Changed
-			//instance.$slider.css({
-			//	width	: instance.sliderW + 10 // TODO: +10px seems to solve a firefox "bug" :S
-			//});
+			instance.$slider.css({
+				width	: instance.sliderW + 40 // TODO: +10px seems to solve a firefox "bug" :S
+			});
 			
 		},
 		_slide				: function( dir, val, anim, callback ) {
