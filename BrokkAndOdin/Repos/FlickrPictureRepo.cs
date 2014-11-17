@@ -16,7 +16,7 @@ namespace BrokkAndOdin.Repos
 			var flickr = new Flickr(ConfigurationManager.AppSettings["FlickrKey"], ConfigurationManager.AppSettings["FlickrSecert"]);
 			var set = flickr.PhotosetsGetList("129426516@N03");
 
-			var flickrPhotos = flickr.PhotosetsGetPhotos(set.First().PhotosetId, PhotoSearchExtras.DateTaken | PhotoSearchExtras.Description);
+			var flickrPhotos = flickr.PhotosetsGetPhotos(set.First().PhotosetId, PhotoSearchExtras.DateTaken | PhotoSearchExtras.Description | PhotoSearchExtras.Tags);
 			var photos = Mapper.Map<IList<Models.Photo>>(flickrPhotos);
 			return photos.OrderByDescending(x => x.DateTaken).ToList();
 		}

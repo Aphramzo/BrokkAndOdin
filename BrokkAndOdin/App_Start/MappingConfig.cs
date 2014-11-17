@@ -12,7 +12,8 @@ namespace BrokkAndOdin
 		{
 			Mapper.Initialize(cfg =>
 			{
-				cfg.CreateMap<FlickrNet.Photo, Models.Photo>();
+				cfg.CreateMap<FlickrNet.Photo, Models.Photo>()
+					.ForMember(dest => dest.ThumbnailUrl, opt => opt.MapFrom(src => src.SquareThumbnailUrl));
 			});
 		}
 	}

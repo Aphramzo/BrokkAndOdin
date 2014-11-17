@@ -6,7 +6,6 @@ $selectViewColor: #6f6f6f;
 	padding:10px 27px;
 	position:relative;
 	position:relative;
-	margin-bottom:20px;
 }
 
 .es-carousel{
@@ -128,7 +127,7 @@ $selectViewColor: #6f6f6f;
 
 .rg-caption {
 	text-align:center;
-	margin-top:15px;
+	margin-top:10px;
 	position:relative;
 
     p {
@@ -136,7 +135,7 @@ $selectViewColor: #6f6f6f;
 	    letter-spacing:.05em;
 	    font-family: 'Trebuchet MS', 'Myriad Pro', Arial, sans-serif;
 	    line-height:16px;
-	    padding:0 15px;
+	    padding:0 15px 10px;
 	    text-transform:uppercase;
         color: #B0B0B0;
     }

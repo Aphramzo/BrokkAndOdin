@@ -11,6 +11,7 @@ namespace BrokkAndOdin.Models
 		public string ThumbnailUrl { get; set; }
 		public string LargeUrl { get; set; }
 		public string Description { get; set;}
+		public IList<String> Tags { get; set; }
 
 		public string Title
 		{

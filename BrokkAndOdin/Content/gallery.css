@@ -2,8 +2,7 @@
   background: #202020;
   padding: 10px 27px;
   position: relative;
-  position: relative;
-  margin-bottom: 20px; }
+  position: relative; }
 
 .es-carousel {
   overflow: hidden;
@@ -95,14 +94,14 @@
 
 .rg-caption {
   text-align: center;
-  margin-top: 15px;
+  margin-top: 10px;
   position: relative; }
   .rg-caption p {
     font-size: 1em;
     letter-spacing: 0.05em;
     font-family: 'Trebuchet MS', 'Myriad Pro', Arial, sans-serif;
     line-height: 16px;
-    padding: 0 15px;
+    padding: 0 15px 10px;
     text-transform: uppercase;
     color: #B0B0B0; }
 
