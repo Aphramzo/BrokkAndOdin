@@ -10,5 +10,6 @@ namespace BrokkAndOdin.Repos
 	public interface IPictureRepo
 	{
 		IList<Photo> GetLatestPhotos();
+		IList<Photo> GetLatestPhotos(int pageNumber);
 	}
 }

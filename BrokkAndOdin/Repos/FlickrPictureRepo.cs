@@ -1,7 +1,6 @@
 ﻿using FlickrNet;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
 using System.Web;
 using BrokkAndOdin.Models;
@@ -11,12 +10,23 @@ namespace BrokkAndOdin.Repos
 {
 	public class FlickrPictureRepo : IPictureRepo
 	{
+		public int PicturesPerPage = 50;
+
 		public IList<Models.Photo> GetLatestPhotos()
 		{
-			var flickr = new Flickr(ConfigurationManager.AppSettings["FlickrKey"], ConfigurationManager.AppSettings["FlickrSecert"]);
-			var set = flickr.PhotosetsGetList("129426516@N03");
+			return GetLatestPhotos(1);
+		}
 
-			var flickrPhotos = flickr.PhotosetsGetPhotos(set.First().PhotosetId, PhotoSearchExtras.DateTaken | PhotoSearchExtras.Description | PhotoSearchExtras.Tags);
+		public IList<Models.Photo> GetLatestPhotos(int pageNumber)
+		{
+			var flickr = new Flickr(AppConfig.FlickrKey, AppConfig.FlickrSecert);
+			
+			var flickrPhotos = flickr.PeopleGetPublicPhotos(
+				AppConfig.FlickrUser, 
+				pageNumber,
+				PicturesPerPage,
+				SafetyLevel.Safe,
+				PhotoSearchExtras.DateTaken | PhotoSearchExtras.Description | PhotoSearchExtras.Tags);
 			var photos = Mapper.Map<IList<Models.Photo>>(flickrPhotos);
 			return photos.OrderByDescending(x => x.DateTaken).ToList();
 		}

@@ -9,7 +9,7 @@ namespace BrokkAndOdin.Models
 	{
 		public DateTime? DateTaken { get; set; }
 		public string ThumbnailUrl { get; set; }
-		public string LargeUrl { get; set; }
+		public string FullUrl { get; set; }
 		public string Description { get; set;}
 		public IList<String> Tags { get; set; }
 
@@ -18,9 +18,17 @@ namespace BrokkAndOdin.Models
 			get
 			{
 				if (!String.IsNullOrEmpty(Description))
-					return String.Format("{0} - {1}", DateTaken.Value.ToShortDateString(), Description);
+					return String.Format("{0} ({2} days old) - {1}", DateTaken.Value.ToShortDateString(), Description, Age);
 				else
 					return DateTaken.Value.ToShortDateString();
+			}
+		}
+
+		public int Age
+		{
+			get
+			{
+				return (DateTaken - AppConfig.Birthdate).Value.Days;
 			}
 		}
 	}
