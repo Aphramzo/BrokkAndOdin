@@ -3,9 +3,52 @@
     ViewBag.Title = "Home Page";
 }
 
-@foreach (var photo in Model.Photos)
-{
-    <a href="@photo.LargeUrl">
-        <img src="@photo.ThumbnailUrl" alt="@photo.Title" title="@photo.Title" />
-    </a>
+@section scripts{
+    @Scripts.Render("~/bundles/gallery")
+    <script id="img-wrapper-tmpl" type="text/x-jquery-tmpl">
+        <div class="rg-image-wrapper">
+            {{if itemsCount > 1}}
+            <div class="rg-image-nav">
+                <a href="#" class="rg-image-nav-prev">Previous Image</a>
+                <a href="#" class="rg-image-nav-next">Next Image</a>
+            </div>
+            {{/if}}
+            <div class="rg-caption-wrapper">
+                <div class="rg-caption" style="display:none;">
+                    <p></p>
+                </div>
+            </div>
+            <div class="rg-image"></div>
+            <div class="rg-loading"></div>
+        </div>
+    </script>
 }
+
+@section styles{
+    @Styles.Render("~/Content/gallery")
+}
+
+<div id="rg-gallery" class="rg-gallery">
+    <div class="rg-thumbs">
+        <!-- Elastislide Carousel Thumbnail Viewer -->
+        <div class="es-carousel-wrapper">
+            <div class="es-nav">
+                <span class="es-nav-prev">Previous</span>
+                <span class="es-nav-next">Next</span>
+            </div>
+            <div class="es-carousel">
+                <ul>
+                    @foreach (var photo in Model.Photos)
+                    {
+                        <li>
+                            <a href="#">
+                                <img src="@photo.ThumbnailUrl" data-large="@photo.LargeUrl" alt="@photo.Title" data-description="@photo.Title" />
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+

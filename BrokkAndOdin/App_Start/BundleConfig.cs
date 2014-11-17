@@ -23,9 +23,18 @@ namespace BrokkAndOdin
 					  "~/Scripts/bootstrap.js",
 					  "~/Scripts/respond.js"));
 
+			bundles.Add(new ScriptBundle("~/bundles/gallery").Include(
+					  "~/Scripts/gallery.js",
+					  "~/Scripts/jquery.easing.1.3.js",
+					  "~/Scripts/jquery.elastislide.js",
+					  "~/Scripts/jquery.tmpl.min.js"));
+
 			bundles.Add(new StyleBundle("~/Content/css").Include(
 					  "~/Content/bootstrap.css",
 					  "~/Content/site.css"));
+
+			bundles.Add(new StyleBundle("~/Content/gallery").Include(
+					  "~/Content/gallery.css"));
 		}
 	}
 }
