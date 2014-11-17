@@ -5,5 +5,7 @@
 
 @foreach (var photo in Model.Photos)
 {
-    <img src="@photo.ThumbnailUrl" alt="@photo.Title" title="@photo.Title" />
+    <a href="@photo.LargeUrl">
+        <img src="@photo.ThumbnailUrl" alt="@photo.Title" title="@photo.Title" />
+    </a>
 }
