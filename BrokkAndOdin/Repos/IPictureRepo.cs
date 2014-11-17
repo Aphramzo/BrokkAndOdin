@@ -7,7 +7,7 @@ using BrokkAndOdin.Models;
 
 namespace BrokkAndOdin.Repos
 {
-	interface IPictureRepo
+	public interface IPictureRepo
 	{
 		IList<Photo> GetLatestPhotos();
 	}

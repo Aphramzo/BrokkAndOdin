@@ -57,3 +57,10 @@ C:\Users\Tyler Walborn\documents\visual studio 2013\Projects\BrokkAndOdin\BrokkA
 C:\Users\Tyler Walborn\documents\visual studio 2013\Projects\BrokkAndOdin\BrokkAndOdin\bin\AutoMapper.Net4.dll
 C:\Users\Tyler Walborn\documents\visual studio 2013\Projects\BrokkAndOdin\BrokkAndOdin\bin\AutoMapper.dll
 C:\Users\Tyler Walborn\documents\visual studio 2013\Projects\BrokkAndOdin\BrokkAndOdin\bin\AutoMapper.xml
+C:\Users\Tyler Walborn\Documents\Visual Studio 2013\Projects\BrokkAndOdin\BrokkAndOdin\bin\Microsoft.Practices.Unity.Configuration.dll
+C:\Users\Tyler Walborn\Documents\Visual Studio 2013\Projects\BrokkAndOdin\BrokkAndOdin\bin\Microsoft.Practices.Unity.dll
+C:\Users\Tyler Walborn\Documents\Visual Studio 2013\Projects\BrokkAndOdin\BrokkAndOdin\bin\Microsoft.Practices.Unity.RegistrationByConvention.dll
+C:\Users\Tyler Walborn\Documents\Visual Studio 2013\Projects\BrokkAndOdin\BrokkAndOdin\bin\Unity.Mvc5.dll
+C:\Users\Tyler Walborn\Documents\Visual Studio 2013\Projects\BrokkAndOdin\BrokkAndOdin\bin\Microsoft.Practices.Unity.xml
+C:\Users\Tyler Walborn\Documents\Visual Studio 2013\Projects\BrokkAndOdin\BrokkAndOdin\bin\Microsoft.Practices.Unity.Configuration.xml
+C:\Users\Tyler Walborn\Documents\Visual Studio 2013\Projects\BrokkAndOdin\BrokkAndOdin\bin\Microsoft.Practices.Unity.RegistrationByConvention.xml

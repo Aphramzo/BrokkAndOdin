@@ -10,12 +10,18 @@ namespace BrokkAndOdin.Controllers
 {
 	public class HomeController : Controller
 	{
+		private readonly IPictureRepo pictureRepo;
+
+		public HomeController(IPictureRepo _pictureRepo)
+		{
+			pictureRepo = _pictureRepo;
+		}
+
 		public ActionResult Index()
 		{
-			var picRepo = new FlickrPictureRepo();
 			var viewModel = new HomeViewModel
 			{
-				Photos = picRepo.GetLatestPhotos()
+				Photos = pictureRepo.GetLatestPhotos()
 			};
 			return View(viewModel);
 		}

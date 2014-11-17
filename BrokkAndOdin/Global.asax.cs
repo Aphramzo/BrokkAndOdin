@@ -17,6 +17,7 @@ namespace BrokkAndOdin
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 			MappingConfig.RegisterMappings();
+			UnityConfig.RegisterComponents(); 
         }
     }
 }
