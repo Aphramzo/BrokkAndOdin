@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using AutoMapper;
+
+namespace BrokkAndOdin
+{
+	public static class MappingConfig
+	{
+		public static void RegisterMappings()
+		{
+			Mapper.Initialize(cfg =>
+			{
+				cfg.CreateMap<FlickrNet.Photo, Models.Photo>();
+			});
+		}
+	}
+}

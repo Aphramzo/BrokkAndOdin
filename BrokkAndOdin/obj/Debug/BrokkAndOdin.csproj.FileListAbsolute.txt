@@ -54,3 +54,6 @@ C:\Users\Tyler Walborn\documents\visual studio 2013\Projects\BrokkAndOdin\BrokkA
 C:\Users\Tyler Walborn\documents\visual studio 2013\Projects\BrokkAndOdin\BrokkAndOdin\obj\Debug\BrokkAndOdin.csprojResolveAssemblyReference.cache
 C:\Users\Tyler Walborn\documents\visual studio 2013\Projects\BrokkAndOdin\BrokkAndOdin\obj\Debug\BrokkAndOdin.dll
 C:\Users\Tyler Walborn\documents\visual studio 2013\Projects\BrokkAndOdin\BrokkAndOdin\obj\Debug\BrokkAndOdin.pdb
+C:\Users\Tyler Walborn\documents\visual studio 2013\Projects\BrokkAndOdin\BrokkAndOdin\bin\AutoMapper.Net4.dll
+C:\Users\Tyler Walborn\documents\visual studio 2013\Projects\BrokkAndOdin\BrokkAndOdin\bin\AutoMapper.dll
+C:\Users\Tyler Walborn\documents\visual studio 2013\Projects\BrokkAndOdin\BrokkAndOdin\bin\AutoMapper.xml

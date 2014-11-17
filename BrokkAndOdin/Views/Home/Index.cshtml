@@ -1,13 +1,9 @@
-﻿@{
+﻿@model BrokkAndOdin.ViewModels.HomeViewModel
+@{
     ViewBag.Title = "Home Page";
 }
 
-<style>
-    body{
-        background-image: url(@ViewBag.FirstPicUrl);
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-position: center;
-
-    }
-</style>
+@foreach (var photo in Model.Photos)
+{
+    <img src="@photo.ThumbnailUrl" alt="@photo.Title" title="@photo.Title" />
+}
