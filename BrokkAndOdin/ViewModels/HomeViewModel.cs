@@ -8,5 +8,6 @@ namespace BrokkAndOdin.ViewModels
 	public class HomeViewModel
 	{
 		public IList<Models.Photo> Photos { get; set; }
+		public string SearchString { get; set; }
 	}
 }

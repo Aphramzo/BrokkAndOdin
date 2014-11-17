@@ -17,6 +17,7 @@ namespace BrokkAndOdin.Controllers
 			pictureRepo = _pictureRepo;
 		}
 
+		[HttpGet]
 		public ActionResult Index()
 		{
 			var viewModel = new HomeViewModel
@@ -26,6 +27,12 @@ namespace BrokkAndOdin.Controllers
 			return View(viewModel);
 		}
 
+		[HttpPost]
+		public ActionResult Index(HomeViewModel viewModel)
+		{
+			viewModel.Photos = pictureRepo.SearchPhotos(viewModel.SearchString);
+			return View(viewModel);
+		}
 
 	}
 }

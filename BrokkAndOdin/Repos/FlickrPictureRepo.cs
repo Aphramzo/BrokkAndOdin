@@ -11,6 +11,19 @@ namespace BrokkAndOdin.Repos
 	public class FlickrPictureRepo : IPictureRepo
 	{
 		public int PicturesPerPage = 50;
+		private Flickr _flickr { get; set; }
+		private Flickr _Flickr
+		{
+			get
+			{
+				if (_flickr == null)
+				{
+					var flickr = new Flickr(AppConfig.FlickrKey, AppConfig.FlickrSecert);
+					_flickr = flickr;
+				}
+				return _flickr;
+			}
+		}
 
 		public IList<Models.Photo> GetLatestPhotos()
 		{
@@ -19,9 +32,7 @@ namespace BrokkAndOdin.Repos
 
 		public IList<Models.Photo> GetLatestPhotos(int pageNumber)
 		{
-			var flickr = new Flickr(AppConfig.FlickrKey, AppConfig.FlickrSecert);
-			
-			var flickrPhotos = flickr.PeopleGetPublicPhotos(
+			var flickrPhotos = _Flickr.PeopleGetPublicPhotos(
 				AppConfig.FlickrUser, 
 				pageNumber,
 				PicturesPerPage,
@@ -29,6 +40,16 @@ namespace BrokkAndOdin.Repos
 				PhotoSearchExtras.DateTaken | PhotoSearchExtras.Description | PhotoSearchExtras.Tags);
 			var photos = Mapper.Map<IList<Models.Photo>>(flickrPhotos);
 			return photos.OrderByDescending(x => x.DateTaken).ToList();
+		}
+
+		public IList<Models.Photo> SearchPhotos(string searchString)
+		{
+			var flickrPhotos = _Flickr.PhotosSearch(new PhotoSearchOptions
+			{
+				UserId = AppConfig.FlickrUser,
+				Text = searchString
+			});
+			return Mapper.Map<IList<Models.Photo>>(flickrPhotos).OrderByDescending(x => x.DateTaken).ToList();
 		}
 	}
 }

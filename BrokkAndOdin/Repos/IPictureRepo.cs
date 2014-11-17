@@ -11,5 +11,7 @@ namespace BrokkAndOdin.Repos
 	{
 		IList<Photo> GetLatestPhotos();
 		IList<Photo> GetLatestPhotos(int pageNumber);
+
+		IList<Photo> SearchPhotos(string searchString);
 	}
 }
