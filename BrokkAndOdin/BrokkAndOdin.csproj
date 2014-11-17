@@ -203,8 +203,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="images\ajax-loader.gif" />
+    <Content Include="images\FullView.png" />
     <Content Include="images\nav.png" />
     <Content Include="images\nav_thumbs.png" />
+    <Content Include="images\ThumbView.png" />
     <Content Include="images\views.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

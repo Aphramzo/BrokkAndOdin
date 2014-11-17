@@ -127,8 +127,8 @@ $selectViewColor: #6f6f6f;
 	position:relative;
 
     p {
-	    font-size:11px;
-	    letter-spacing:2px;
+	    font-size:1.1em;
+	    letter-spacing:.05em;
 	    font-family: 'Trebuchet MS', 'Myriad Pro', Arial, sans-serif;
 	    line-height:16px;
 	    padding:0 15px;
@@ -138,15 +138,15 @@ $selectViewColor: #6f6f6f;
 }
 
 .rg-view {
-	height:16px;
+	height:22px;
     background-color: $navBackgroundColor;
     padding: 0 24px;
 
     a {
 	    display:block;
 	    float:right;
-	    width:16px;
-	    height:16px;
+	    width:22px;
+	    height:22px;
 	    margin-right:3px;
 	    background:#464646 url(../images/views.png) no-repeat top left;
 	    border:3px solid #464646;
