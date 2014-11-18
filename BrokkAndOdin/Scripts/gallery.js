@@ -107,25 +107,28 @@ $(function() {
 				
 				// top right buttons: hide / show carousel
 				
-				var $viewfull	= $('<a href="#" class="rg-view-full"></a>'),
-					$viewthumbs	= $('<a href="#" class="rg-view-thumbs rg-view-selected"></a>');
+                //TODO: TW Change - no longer adding these via script, part of the markup
+				var $viewfull	= $('a.rg-view-full'),
+					$viewthumbs	= $('a.rg-view-thumbs');
 				
-				$rgGallery.prepend( $('<div class="rg-view"/>').append( $viewfull ).append( $viewthumbs ) );
+				//$rgGallery.prepend( $('<div class="rg-view"/>').append( $viewfull ).append( $viewthumbs ) );
 				
-				$viewfull.on('click.rgGallery', function( event ) {
+				$viewfull.on('click', function( event ) {
 						if( mode === 'carousel' )
 							$esCarousel.elastislide( 'destroy' );
 						$esCarousel.hide();
 					$viewfull.addClass('rg-view-selected');
 					$viewthumbs.removeClass('rg-view-selected');
+					$('nav').addClass('rounded-bottom');
 					mode	= 'fullview';
 					return false;
 				});
 				
-				$viewthumbs.on('click.rgGallery', function( event ) {
+				$viewthumbs.on('click', function( event ) {
 					_initCarousel();
 					$viewthumbs.addClass('rg-view-selected');
 					$viewfull.removeClass('rg-view-selected');
+					$('nav').removeClass('rounded-bottom');
 					mode	= 'carousel';
 					return false;
 				});

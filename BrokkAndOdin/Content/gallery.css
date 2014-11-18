@@ -1,12 +1,16 @@
-﻿.es-carousel-wrapper {
-  background: #202020;
-  padding: 10px 27px;
+﻿nav {
+  background-color: rgba(125, 125, 125, 0.33);
+  padding: 10px 0; }
+
+.es-carousel-wrapper {
+  background: rgba(125, 125, 125, 0.33);
+  padding: 0 27px 10px;
   position: relative;
   position: relative; }
 
 .es-carousel {
   overflow: hidden;
-  background: #000; }
+  background: #202020; }
   .es-carousel ul {
     display: none; }
     .es-carousel ul li {
@@ -55,15 +59,14 @@
 .rg-image-wrapper {
   position: relative;
   padding: 0 30px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
   border-radius: 10px;
   min-height: 20px; }
 
 .rg-image {
   position: relative;
   text-align: center;
-  line-height: 0px; }
+  line-height: 0px;
+  background-color: rgba(0, 0, 0, 0.33); }
   .rg-image img {
     max-height: 100%;
     max-width: 100%; }
@@ -79,15 +82,11 @@
   cursor: pointer;
   opacity: 0.3;
   outline: none;
-  -moz-border-radius: 10px 0px 0px 10px;
-  -webkit-border-radius: 10px 0px 0px 10px;
   border-radius: 10px 0px 0px 10px; }
   .rg-image-nav a.rg-image-nav-next {
     right: 0px;
     left: auto;
     background-position: 115% 50%;
-    -moz-border-radius: 0px 10px 10px 0px;
-    -webkit-border-radius: 0px 10px 10px 0px;
     border-radius: 0px 10px 10px 0px; }
   .rg-image-nav a:hover {
     opacity: 0.8; }
@@ -101,30 +100,30 @@
     letter-spacing: 0.05em;
     font-family: 'Trebuchet MS', 'Myriad Pro', Arial, sans-serif;
     line-height: 16px;
-    padding: 0 15px 10px;
+    padding: 10px 15px;
     text-transform: uppercase;
-    color: #B0B0B0; }
+    color: #B0B0B0;
+    background-color: rgba(0, 0, 0, 0.33); }
 
 .rg-view {
   height: 34px;
-  background-color: #202020;
-  padding: 0 24px; }
+  padding: 5px 24px 0 0; }
   .rg-view a {
     display: block;
     float: right;
     width: 22px;
     height: 22px;
     margin-right: 3px;
-    background: #464646 url(../images/views.png) no-repeat top left;
-    border: 3px solid #464646;
+    background: rgba(125, 125, 125, 0.33) url(../images/views.png) no-repeat top left;
+    border: 3px solid #7d7d7d;
     opacity: 0.8; }
     .rg-view a:hover {
       opacity: 1; }
     .rg-view a.rg-view-full {
       background-position: 0 0; }
     .rg-view a.rg-view-selected {
-      background-color: #6f6f6f;
-      border-color: #6f6f6f; }
+      background-color: #BBB;
+      border-color: #BBB; }
     .rg-view a.rg-view-thumbs {
       background-position: 0 -16px; }
 
@@ -134,12 +133,17 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  background: #000 url(../images/ajax-loader.gif) no-repeat center center;
+  background: #202020 url(../images/ajax-loader.gif) no-repeat center center;
   margin: -23px 0px 0px -23px;
   z-index: 100;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
   border-radius: 10px;
   opacity: 0.7; }
+
+.rounded-bottom {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px; }
+
+.search-box {
+  padding-left: 26px; }
 
 /*# sourceMappingURL=gallery.css.map */
