@@ -221,6 +221,7 @@
     <Content Include="Content\site.css.map">
       <DependentUpon>site.css</DependentUpon>
     </Content>
+    <Content Include="fonts\chalkBoard.ttf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\gallery.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

@@ -6,4 +6,23 @@ body {
   background-color: #202020;
   background-image: url(../images/dark-blackboard.png); }
 
+@font-face {
+  font-family: 'ChalkBoard';
+  /*a name to be used later*/
+  src: url(../fonts/chalkBoard.ttf);
+  /*URL to font*/ }
+
+.chalkboard {
+  font-family: ChalkBoard;
+  color: #fff; }
+
+.title {
+  font-size: 1.72em;
+  padding-left: 26px; }
+
+@media (max-width: 980px) {
+  .hidden-for-mobile {
+    display: none; }
+ }
+
 /*# sourceMappingURL=site.css.map */
