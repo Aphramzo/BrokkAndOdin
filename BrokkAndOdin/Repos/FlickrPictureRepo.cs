@@ -47,7 +47,8 @@ namespace BrokkAndOdin.Repos
 			var flickrPhotos = _Flickr.PhotosSearch(new PhotoSearchOptions
 			{
 				UserId = AppConfig.FlickrUser,
-				Text = searchString
+				Text = searchString,
+				Extras = PhotoSearchExtras.DateTaken | PhotoSearchExtras.Description | PhotoSearchExtras.Tags
 			});
 			return Mapper.Map<IList<Models.Photo>>(flickrPhotos).OrderByDescending(x => x.DateTaken).ToList();
 		}
