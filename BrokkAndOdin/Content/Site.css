@@ -23,6 +23,9 @@ body {
 @media (max-width: 980px) {
   .hidden-for-mobile {
     display: none; }
+
+  .search-box {
+    padding-left: 26px; }
  }
 
 /*# sourceMappingURL=site.css.map */
