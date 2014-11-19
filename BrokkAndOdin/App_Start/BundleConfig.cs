@@ -27,14 +27,18 @@ namespace BrokkAndOdin
 					  "~/Scripts/gallery.js",
 					  "~/Scripts/jquery.easing.1.3.js",
 					  "~/Scripts/jquery.elastislide.js",
-					  "~/Scripts/jquery.tmpl.min.js"));
+					  "~/Scripts/jquery.tmpl.min.js",
+					  "~/Scripts/moment.js",
+					  "~/Scripts/dateRangePicker.js",
+					  "~/Scripts/home.js"));
 
 			bundles.Add(new StyleBundle("~/Content/css").Include(
 					  "~/Content/bootstrap.css",
 					  "~/Content/site.css"));
 
 			bundles.Add(new StyleBundle("~/Content/gallery").Include(
-					  "~/Content/gallery.css"));
+					  "~/Content/gallery.css",
+					  "~/Content/dateRangePicker.css"));
 		}
 	}
 }

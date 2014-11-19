@@ -22,7 +22,9 @@ namespace BrokkAndOdin.Controllers
 		{
 			var viewModel = new HomeViewModel
 			{
-				Photos = pictureRepo.GetLatestPhotos()
+				Photos = pictureRepo.GetLatestPhotos(),
+				StartDate = DateTime.Now.AddDays(-29),
+				EndDate = DateTime.Now
 			};
 			return View(viewModel);
 		}
