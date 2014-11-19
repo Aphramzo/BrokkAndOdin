@@ -30,7 +30,7 @@ namespace BrokkAndOdin.Controllers
 		[HttpPost]
 		public ActionResult Index(HomeViewModel viewModel)
 		{
-			viewModel.Photos = pictureRepo.SearchPhotos(viewModel.SearchString);
+			viewModel.Photos = pictureRepo.SearchPhotos(viewModel.SearchString, viewModel.StartDate, viewModel.EndDate);
 			return View(viewModel);
 		}
 

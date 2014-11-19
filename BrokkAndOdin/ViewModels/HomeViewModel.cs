@@ -9,5 +9,7 @@ namespace BrokkAndOdin.ViewModels
 	{
 		public IList<Models.Photo> Photos { get; set; }
 		public string SearchString { get; set; }
+		public DateTime? StartDate { get; set; }
+		public DateTime? EndDate { get; set; }
 	}
 }

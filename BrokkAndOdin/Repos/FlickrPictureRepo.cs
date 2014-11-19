@@ -42,13 +42,15 @@ namespace BrokkAndOdin.Repos
 			return photos.OrderByDescending(x => x.DateTaken).ToList();
 		}
 
-		public IList<Models.Photo> SearchPhotos(string searchString)
+		public IList<Models.Photo> SearchPhotos(string searchString, DateTime? startDate, DateTime? endDate)
 		{
 			var flickrPhotos = _Flickr.PhotosSearch(new PhotoSearchOptions
 			{
 				UserId = AppConfig.FlickrUser,
 				Text = searchString,
-				Extras = PhotoSearchExtras.DateTaken | PhotoSearchExtras.Description | PhotoSearchExtras.Tags
+				Extras = PhotoSearchExtras.DateTaken | PhotoSearchExtras.Description | PhotoSearchExtras.Tags,
+				MaxTakenDate = endDate.HasValue ? endDate.Value : DateTime.Now,
+				MinTakenDate = startDate.HasValue ? startDate.Value : AppConfig.Birthdate
 			});
 			return Mapper.Map<IList<Models.Photo>>(flickrPhotos).OrderByDescending(x => x.DateTaken).ToList();
 		}
