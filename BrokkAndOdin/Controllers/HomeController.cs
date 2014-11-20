@@ -23,8 +23,8 @@ namespace BrokkAndOdin.Controllers
 			var viewModel = new HomeViewModel
 			{
 				Photos = pictureRepo.GetLatestPhotos(),
-				StartDate = DateTime.Now.AddDays(-29),
-				EndDate = DateTime.Now
+				StartDate = AppConfig.Birthdate,
+				EndDate = DateTime.Now.AddDays(1)
 			};
 			return View(viewModel);
 		}

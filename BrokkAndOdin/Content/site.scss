@@ -24,13 +24,10 @@ body {
 }
 
 nav{
-    &.row{
-        div:last-child{
-            padding-right: 27px;
-            text-align: right;
-        }
-    }
-
+    div:last-child{
+        padding-right: 27px;
+        text-align: right;
+    }   
 }
 
 @media (max-width: 980px) {

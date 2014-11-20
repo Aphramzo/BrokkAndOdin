@@ -18,7 +18,7 @@ body {
   font-size: 1.72em;
   padding-left: 26px; }
 
-nav.row div:last-child {
+nav div:last-child {
   padding-right: 27px;
   text-align: right; }
 
