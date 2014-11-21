@@ -5,7 +5,7 @@ using System.Web;
 
 namespace BrokkAndOdin.ViewModels
 {
-	public class HomeViewModel
+	public class GalleryViewModel
 	{
 		public IList<Models.Photo> Photos { get; set; }
 		public string SearchString { get; set; }

@@ -1,4 +1,4 @@
-﻿@model BrokkAndOdin.ViewModels.HomeViewModel
+﻿@model BrokkAndOdin.ViewModels.GalleryViewModel
 @{
     ViewBag.Title = "Home Page";
 }
@@ -27,7 +27,7 @@
 @section styles{
     @Styles.Render("~/Content/gallery")
 }
-@using (Html.BeginForm("index", "home"))
+@using (Html.BeginForm())
 {
     <nav class="row">
         <div class="col-md-8 chalkboard title hidden-for-mobile">

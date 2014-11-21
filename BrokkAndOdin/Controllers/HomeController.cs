@@ -18,9 +18,10 @@ namespace BrokkAndOdin.Controllers
 		}
 
 		[HttpGet]
-		public ActionResult Index()
+		[Route("")]
+		public ActionResult Gallery()
 		{
-			var viewModel = new HomeViewModel
+			var viewModel = new GalleryViewModel
 			{
 				Photos = pictureRepo.GetLatestPhotos(),
 				StartDate = AppConfig.Birthdate,
@@ -30,7 +31,8 @@ namespace BrokkAndOdin.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult Index(HomeViewModel viewModel)
+		[Route("")]
+		public ActionResult Gallery(GalleryViewModel viewModel)
 		{
 			viewModel.Photos = pictureRepo.SearchPhotos(viewModel.SearchString, viewModel.StartDate, viewModel.EndDate);
 			return View(viewModel);
