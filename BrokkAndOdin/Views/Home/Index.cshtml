@@ -33,10 +33,12 @@
         <div class="col-md-8 chalkboard title hidden-for-mobile">
             <a href="/">Brokk & Odin</a>
         </div>
-        <div class="input-group col-md-3 col-xs-9 search-box">
-            @Html.TextBoxFor(m => m.SearchString, null, new { @class = "form-control", placeholder = "search" })
-            <div class="input-group-btn">
-                <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+        <div class="col-md-3 col-xs-9">
+            <div class="input-group search-box">
+                @Html.TextBoxFor(m => m.SearchString, null, new { @class = "form-control", placeholder = "search" })
+                <div class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                </div>
             </div>
         </div>
         <div class="col-xs-3 col-md-1">
