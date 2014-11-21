@@ -1,4 +1,6 @@
-﻿body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { 
+﻿$fontColor: #fff;
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { 
 	margin:0;
 	padding:0;
 }
@@ -15,7 +17,7 @@ body {
 
 .chalkboard {
     font-family: ChalkBoard;
-    color: #fff;
+    color: $fontColor;
 }
 
 .title{
@@ -28,6 +30,14 @@ nav{
         padding-right: 27px;
         text-align: right;
     }   
+    a{
+        color: $fontColor;
+        &:hover, &:active, &:visited{
+            text-decoration: none;
+            color: $fontColor;
+        }
+
+    }
 }
 
 @media (max-width: 980px) {

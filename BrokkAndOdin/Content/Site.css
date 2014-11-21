@@ -21,6 +21,11 @@ body {
 nav div:last-child {
   padding-right: 27px;
   text-align: right; }
+nav a {
+  color: #fff; }
+  nav a:hover, nav a:active, nav a:visited {
+    text-decoration: none;
+    color: #fff; }
 
 @media (max-width: 980px) {
   .hidden-for-mobile {
