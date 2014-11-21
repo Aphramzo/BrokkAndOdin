@@ -207,8 +207,6 @@
     <Content Include="images\ajax-loader.gif" />
     <Content Include="images\dark-blackboard.png" />
     <Content Include="images\FullView.png" />
-    <Content Include="images\nav.png" />
-    <Content Include="images\nav_thumbs.png" />
     <Content Include="images\ThumbView.png" />
     <Content Include="images\views.png" />
     <Content Include="Scripts\bootstrap.js" />
@@ -223,6 +221,8 @@
       <DependentUpon>site.css</DependentUpon>
     </Content>
     <Content Include="fonts\chalkBoard.ttf" />
+    <Content Include="Content\_variables.scss" />
+    <Content Include="Content\dateRange.scss" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\dateRangePicker.js" />
     <Content Include="Scripts\gallery.js" />

@@ -5,7 +5,6 @@
 .es-carousel-wrapper {
   background: rgba(125, 125, 125, 0.33);
   padding: 0 27px 10px;
-  position: relative;
   position: relative; }
 
 .es-carousel {
@@ -30,7 +29,6 @@
         -webkit-transition: all 0.2s ease-in-out;
         -moz-transition: all 0.2s ease-in-out;
         -o-transition: all 0.2s ease-in-out;
-        -ms-transition: all 0.2s ease-in-out;
         transition: all 0.2s ease-in-out; }
         .es-carousel ul li a img {
           display: block;
@@ -42,7 +40,7 @@
   position: absolute;
   top: 50%;
   left: 8px;
-  background: transparent url(../images/nav_thumbs.png) no-repeat top left;
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAZCAYAAAAiwE4nAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAhNJREFUeNpi/P//PwM9ARMDncGohUPfQgZQKgVhZmZmDPz9+3f+Xbt2saCLw/QgY6h6ZpAeIJsRm3kgjNOHX758EQUadMTU1HSxoaEhP1CIBZ/DgeqZ//37twCIj06fPl0RKMRGdJBCLdvHyMioA+SaqqqqqgBpDiBmxGOhAJAyYWJi0g4JCdlRUVGhitVS9CAFBonot2/fLgPp/2/fvr3n7OwcABTXAWI+WFDhCFLGWbNmKb1///4OVO/t6upqbaA4G3KQoscBsmW3HR0dg4DiJkAsiawRVxyC1AB9pgPSi8tSuAaoZVdgCp2cnAKxWUbAQmyW3kG2FK4BKGEItPDH169ff2ZkZCQAJU2xWUaEhWBLFy9ebAsyC4Tb29vDgWKCQMwE13D16lVRYMTfA7nq1atX96KioqyBCniwJXFCFr5580YMaBE4tIDsp3Z2dl5AcQlmZM0g27u6utTevXt3FxasoKAh1YfoiQ6YDoKB4kZALITiQ7Twv4cvpeHJ+OiWYSQ6fJGO01JsFhJjGS4LUSz99OnT+5aWllBYpOOyEBhX+kALX4OiBF8Kx1eWgi1taGgAuVQXiIXxWQiS27Jli1VoaKgdkG2AK4UzwpoYLCxYi0pQ0cQNLQK/AvFPUOH0588fDIVA/aBijx2q/h9U/S8MdQQqE5AGmOn/oRhnxQN1EMySf9gUMY42ooa8hQABBgAIwTy8Sn8mXgAAAABJRU5ErkJggg==) no-repeat top left;
   width: 14px;
   height: 26px;
   margin-top: -13px;
@@ -65,7 +63,7 @@
 .rg-image {
   position: relative;
   text-align: center;
-  line-height: 0px;
+  line-height: 0;
   background-color: rgba(0, 0, 0, 0.33); }
   .rg-image img {
     max-height: 100%;
@@ -73,21 +71,21 @@
 
 .rg-image-nav a {
   position: absolute;
-  top: 0px;
-  left: 0px;
-  background: #000 url(../images/nav.png) no-repeat -20% 50%;
+  top: 0;
+  left: 0;
+  background: #000 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAAgCAYAAABHA7voAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAsFJREFUeNrcmU+L2kAYxjf+WVeaXVo8CIVS6KHQLqWwh/QD9CCKsOC1tFIKhfZkrz14EvwOPQseBBF68SBe/QDWc4V2d7OsMWqidrPW9BlJQHeDTMZMLA48mJnRefObyZ9nXgXTNPd2uQT2drzsPKAQDAZd/WA4HJ7OZrNHsVjsG6ozaE7a0eb5yYVCocXnaDT6PJ1O5Xg8/h3Vv3ZMqkIAaaXr+ikCXUNmp9P5irYjKED6yL3stci44/GYwJmTycRotVrv0XbPjkkjJjiifr9/LknSMfqivAARJwqwn3ZMAtlsNj+6gWSC6/V6cjqdfoM+AijyXMFarfZ0MBj8ZoVkgksmk+/Q9wp6CO3zBCTjF4vFE1VVz1ggN4WLQAJnQDJ+hBXSEzjOgBtBegLnAyAzpCdwPgEyQXoC5yOga0hP4HwGdAW5DHfDCrcFwHWQs2VI4hZEaGR/AS9V1S3clgBXIOFXFZsBCzZOJBLEhBwEZFmeo2i2Nw2Hw4eZTOYxDq+gPmRA/+umkZyXkc1mn8CYH9mNhmFMut3uAxxGF7NQKpWeYQZkewZgcG/q9fony4ZReb4treCdZ4eiKD3rCjyB7q/YIRjoX6yebxuADg/G89s28s61zArpN6ATXCqVeos+afnZcfuGZTa2fgKueaVJSxsAwcnJMEP6BUi5uxHWeVEmz+cHIIsZce0UGo3GBydI3oCAS7M4LSY75ATJE5AVjmZHTw3JC3ATONqcjCMkjAGxdM+JHeKYdBIxmVebeGTarNoKpKZpej6f/4K2F9Ah6ee0gkK73X6NVdTgUC6s95wrj+wm8StA+4VC4VgUxZe5XO4H6peWrjkmfiPVajVZqVSMcrlMYl1ACq1HdpvZXkBCopX216E/JBBHQBLzwIo5t2JSbwBCLO4dUq3Acx92GqY1iTaU6SamsOt/n/0TYACoVIm0QKovZAAAAABJRU5ErkJggg==) no-repeat -20% 50%;
   width: 28px;
   height: 100%;
   text-indent: -9000px;
   cursor: pointer;
   opacity: 0.3;
   outline: none;
-  border-radius: 10px 0px 0px 10px; }
+  border-radius: 10px 0 0 10px; }
   .rg-image-nav a.rg-image-nav-next {
-    right: 0px;
+    right: 0;
     left: auto;
     background-position: 115% 50%;
-    border-radius: 0px 10px 10px 0px; }
+    border-radius: 0 10px 10px 0; }
   .rg-image-nav a:hover {
     opacity: 0.8; }
 
@@ -105,28 +103,6 @@
     color: #B0B0B0;
     background-color: rgba(0, 0, 0, 0.33); }
 
-.rg-view {
-  height: 34px;
-  padding: 5px 24px 0 0; }
-  .rg-view a {
-    display: block;
-    float: right;
-    width: 22px;
-    height: 22px;
-    margin-right: 3px;
-    background: rgba(125, 125, 125, 0.33) url(../images/views.png) no-repeat top left;
-    border: 3px solid #7d7d7d;
-    opacity: 0.8; }
-    .rg-view a:hover {
-      opacity: 1; }
-    .rg-view a.rg-view-full {
-      background-position: 0 0; }
-    .rg-view a.rg-view-selected {
-      background-color: #BBB;
-      border-color: #BBB; }
-    .rg-view a.rg-view-thumbs {
-      background-position: 0 -16px; }
-
 .rg-loading {
   width: 46px;
   height: 46px;
@@ -134,7 +110,7 @@
   top: 50%;
   left: 50%;
   background: #202020 url(../images/ajax-loader.gif) no-repeat center center;
-  margin: -23px 0px 0px -23px;
+  margin: -23px 0 0 -23px;
   z-index: 100;
   border-radius: 10px;
   opacity: 0.7; }
