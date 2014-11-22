@@ -54,5 +54,14 @@ namespace BrokkAndOdin.Repos
 			});
 			return Mapper.Map<IList<Models.Photo>>(flickrPhotos).OrderByDescending(x => x.DateTaken).ToList();
 		}
+
+
+		public IList<Models.Photo> GetPhotoById(string photo)
+		{
+			var flickrPhoto = _Flickr.PhotosGetInfo(photo);
+			var photos = new List<Models.Photo>();
+			photos.Add(Mapper.Map<Models.Photo>(flickrPhoto));
+			return photos;
+		}
 	}
 }

@@ -11,5 +11,6 @@ namespace BrokkAndOdin.ViewModels
 		public string SearchString { get; set; }
 		public DateTime? StartDate { get; set; }
 		public DateTime? EndDate { get; set; }
+		public string picture { get; set; }
 	}
 }

@@ -19,14 +19,21 @@ namespace BrokkAndOdin.Controllers
 
 		[HttpGet]
 		[Route("")]
-		public ActionResult Gallery()
+		public ActionResult Gallery(string photo)
 		{
 			var viewModel = new GalleryViewModel
 			{
-				Photos = pictureRepo.GetLatestPhotos(),
 				StartDate = AppConfig.Birthdate,
 				EndDate = DateTime.Now.AddDays(1)
 			};
+
+			if (string.IsNullOrEmpty(photo))
+			{
+				viewModel.Photos = pictureRepo.GetLatestPhotos();
+			}
+			else{
+				viewModel.Photos = pictureRepo.GetPhotoById(photo);
+			}
 			return View(viewModel);
 		}
 

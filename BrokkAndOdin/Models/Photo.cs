@@ -8,6 +8,7 @@ namespace BrokkAndOdin.Models
 {
 	public class Photo : ITimeLineItem, IMapableItem
 	{
+		public string Id { get; set; }
 		public DateTime? DateTaken { get; set; }
 		public string ThumbnailUrl { get; set; }
 		public string FullUrl { get; set; }
