@@ -39,16 +39,11 @@ nav{
         }
 
     }
-}
 
-
-
-@media (max-width: 980px) {
-    .hidden-for-mobile{
-        display: none;
-    }
-
-    .search-box{
-        padding-left: 12px;
+    .input-group-btn, .btn{
+        height: $input-height-base;
     }
 }
+
+
+@import '_siteTabletDown.scss';

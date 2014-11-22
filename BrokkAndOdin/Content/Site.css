@@ -4917,8 +4917,10 @@ nav a {
   nav a:hover, nav a:active, nav a:visited {
     text-decoration: none;
     color: #fff; }
+nav .input-group-btn, nav .btn {
+  height: 34px; }
 
-@media (max-width: 980px) {
+@media (max-width: 992px) {
   .hidden-for-mobile {
     display: none; }
 
