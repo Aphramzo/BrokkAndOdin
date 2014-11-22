@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Device.Location;
 
 namespace BrokkAndOdin.Models
 {
-	public class Photo
+	public class Photo : ITimeLineItem, IMapableItem
 	{
 		public DateTime? DateTaken { get; set; }
 		public string ThumbnailUrl { get; set; }
 		public string FullUrl { get; set; }
 		public string Description { get; set;}
 		public IList<String> Tags { get; set; }
+		public GeoCoordinate Coords { get; set; }
 
 		public string Title
 		{
@@ -29,6 +31,14 @@ namespace BrokkAndOdin.Models
 			get
 			{
 				return (DateTaken - AppConfig.Birthdate).Value.Days;
+			}
+		}
+
+		public DateTime ItemDateTime
+		{
+			get
+			{
+				return DateTaken.Value;
 			}
 		}
 	}

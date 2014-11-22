@@ -60,6 +60,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Device" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -184,10 +185,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\interfaces\IMapableItem.cs" />
     <Compile Include="Models\Photo.cs" />
+    <Compile Include="Models\Update.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repos\FlickrPictureRepo.cs" />
-    <Compile Include="Repos\IPictureRepo.cs" />
+    <Compile Include="Repos\interfaces\IPictureRepo.cs" />
+    <Compile Include="Models\interfaces\ITimeLineItem.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\GalleryViewModel.cs" />
   </ItemGroup>
