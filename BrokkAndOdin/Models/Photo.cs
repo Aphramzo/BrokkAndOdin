@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Device.Location;
+using Itenso.TimePeriod;
 
 namespace BrokkAndOdin.Models
 {
@@ -21,17 +22,54 @@ namespace BrokkAndOdin.Models
 			get
 			{
 				if (!String.IsNullOrEmpty(Description))
-					return String.Format("{0} ({2} days old) - {1}", DateTaken.Value.ToShortDateString(), Description, Age);
+					return String.Format("{0} ({2}) - {1}", DateTaken.Value.ToShortDateString(), Description, AgeString);
 				else
 					return DateTaken.Value.ToShortDateString();
 			}
 		}
 
-		public int Age
+		public DateDiff Age
 		{
 			get
 			{
-				return (DateTaken - AppConfig.Birthdate).Value.Days;
+				return new DateDiff(AppConfig.Birthdate, DateTaken.Value);
+			}
+		}
+
+		public int AgeInDays
+		{
+			get
+			{
+				return Age.Days;
+			}
+		}
+
+		public int AgeInWeeks
+		{
+			get
+			{
+				return Age.Weeks;
+			}
+		}
+
+		public int AgeInMonths
+		{
+			get
+			{
+				return Age.Months;
+			}
+		}
+
+		public string AgeString
+		{
+			get
+			{
+				if (AgeInDays < 21)
+					return String.Format("{0} days old", AgeInDays);
+				else if (AgeInWeeks < 10)
+					return String.Format("{0} weeks old", AgeInWeeks);
+				else
+					return String.Format("{0} months old", AgeInMonths);
 			}
 		}
 
