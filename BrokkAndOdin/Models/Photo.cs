@@ -51,7 +51,7 @@ namespace BrokkAndOdin.Models
 				//it would seem that weeks goes off start of week
 				//So even though the boys DOB was Friday, it is calculating off of that Monday.
 				//TODO: Make config based or better way than hardcoding the adddays junk
-				return new DateDiff(AppConfig.Birthdate, DateTaken.Value.AddDays(-2)).Weeks;
+				return new DateDiff(AppConfig.Birthdate, DateTaken.Value.AddDays(-5)).Weeks;
 			}
 		}
 
