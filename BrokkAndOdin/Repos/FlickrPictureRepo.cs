@@ -44,6 +44,30 @@ namespace BrokkAndOdin.Repos
 			return photos.OrderByDescending(x => x.DateTaken).ToList();
 		}
 
+		public IList<Models.Photo> SearchPhotos(string searchString, DateTime? startDate, DateTime? endDate)
+		{
+			var flickrPhotos = _Flickr.PhotosSearch(new PhotoSearchOptions
+			{
+				UserId = AppConfig.FlickrUser,
+				Text = searchString,
+				Extras = PhotoSearchExtras.DateTaken | PhotoSearchExtras.Description | PhotoSearchExtras.Tags,
+				MaxTakenDate = endDate.HasValue ? endDate.Value : DateTime.Now,
+				MinTakenDate = startDate.HasValue ? startDate.Value : AppConfig.Birthdate
+			});
+			var photos = Mapper.Map<IList<Models.Photo>>(flickrPhotos).OrderByDescending(x => x.DateTaken).ToList();
+			PopulateVideoUrls(photos);
+			return photos;
+		}
+
+		public IList<Models.Photo> GetPhotoById(string photo)
+		{
+			var flickrPhoto = _Flickr.PhotosGetInfo(photo);
+			var photos = new List<Models.Photo>();
+			photos.Add(Mapper.Map<Models.Photo>(flickrPhoto));
+			PopulateVideoUrls(photos);
+			return photos;
+		}
+
 		private void PopulateVideoUrls(IList<Models.Photo> photos)
 		{
 			photos.Where(c => c.Tags.Contains("video")).ToList().ForEach(x => PopulateVideoUrl(x));
@@ -56,28 +80,6 @@ namespace BrokkAndOdin.Repos
 			{
 				photo.VideoUrl = sizes.First(c => c.Label == "Site MP4").Source;
 			}
-		}
-
-		public IList<Models.Photo> SearchPhotos(string searchString, DateTime? startDate, DateTime? endDate)
-		{
-			var flickrPhotos = _Flickr.PhotosSearch(new PhotoSearchOptions
-			{
-				UserId = AppConfig.FlickrUser,
-				Text = searchString,
-				Extras = PhotoSearchExtras.DateTaken | PhotoSearchExtras.Description | PhotoSearchExtras.Tags,
-				MaxTakenDate = endDate.HasValue ? endDate.Value : DateTime.Now,
-				MinTakenDate = startDate.HasValue ? startDate.Value : AppConfig.Birthdate
-			});
-			return Mapper.Map<IList<Models.Photo>>(flickrPhotos).OrderByDescending(x => x.DateTaken).ToList();
-		}
-
-
-		public IList<Models.Photo> GetPhotoById(string photo)
-		{
-			var flickrPhoto = _Flickr.PhotosGetInfo(photo);
-			var photos = new List<Models.Photo>();
-			photos.Add(Mapper.Map<Models.Photo>(flickrPhoto));
-			return photos;
 		}
 	}
 }
