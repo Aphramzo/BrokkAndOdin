@@ -213,14 +213,22 @@ $(function() {
 				$items.removeClass('selected');
 				$item.addClass('selected');
 					 
-				var $thumb		= $item.find('img'),
-					largesrc	= $thumb.data('large'),
-					title		= $thumb.data('description');
+                //TW - Heavy mods here to support video formats
+				var $thumb = $item.find('img'),
+					largesrc = $thumb.data('large'),
+					title = $thumb.data('description'),
+                    video = $thumb.data('video'),
+                    $imgContainer = $rgGallery.find('div.rg-image');
 				
 				$('<img/>').load( function() {
 					
-					$rgGallery.find('div.rg-image').empty().append('<img src="' + largesrc + '"/>');
-					
+				    if (!video) {
+				        $imgContainer.empty().append('<img src="' + largesrc + '"/>');
+				    }
+				    else {
+				        $imgContainer.empty().append('<video controls><source src="' + video + '" type="video/mp4"><img src="' + largesrc + '"/></video>')
+				    }
+
 					if( title )
 						$rgGallery.find('div.rg-caption').show().children('p').empty().text( title );
 					
