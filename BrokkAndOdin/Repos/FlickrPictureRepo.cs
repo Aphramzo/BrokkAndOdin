@@ -39,7 +39,23 @@ namespace BrokkAndOdin.Repos
 				SafetyLevel.Safe,
 				PhotoSearchExtras.DateTaken | PhotoSearchExtras.Description | PhotoSearchExtras.Tags);
 			var photos = Mapper.Map<IList<Models.Photo>>(flickrPhotos);
+			PopulateVideoUrls(photos);
+
 			return photos.OrderByDescending(x => x.DateTaken).ToList();
+		}
+
+		private void PopulateVideoUrls(IList<Models.Photo> photos)
+		{
+			photos.Where(c => c.Tags.Contains("video")).ToList().ForEach(x => PopulateVideoUrl(x));
+		}
+
+		private void PopulateVideoUrl(Models.Photo photo)
+		{
+			var sizes = _Flickr.PhotosGetSizes(photo.Id);
+			if (sizes.Any(x => x.Label == "Site MP4"))
+			{
+				photo.VideoUrl = sizes.First(c => c.Label == "Site MP4").Source;
+			}
 		}
 
 		public IList<Models.Photo> SearchPhotos(string searchString, DateTime? startDate, DateTime? endDate)

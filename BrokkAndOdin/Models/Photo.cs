@@ -17,6 +17,17 @@ namespace BrokkAndOdin.Models
 		public IList<String> Tags { get; set; }
 		public GeoCoordinate Coords { get; set; }
 
+		//Question time - is a video really just a kind of picture? 
+		//Basically a thumbnail that has a related video?
+		public string VideoUrl { get; set; }
+		public bool HasVideo
+		{
+			get
+			{
+				return !String.IsNullOrEmpty(VideoUrl);
+			}
+		}
+
 		public string Title
 		{
 			get
