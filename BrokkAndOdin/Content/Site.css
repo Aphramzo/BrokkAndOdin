@@ -4660,6 +4660,12 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, 
 body {
   background-color: #202020;
   background-image: url(../images/dark-blackboard.png); }
+  body .news {
+    color: #fff; }
+    body .news div {
+      margin-bottom: 20px; }
+    body .news h2 {
+      margin-bottom: 50px; }
 
 @font-face {
   font-family: 'ChalkBoard';

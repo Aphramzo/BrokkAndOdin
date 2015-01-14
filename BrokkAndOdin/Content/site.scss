@@ -8,7 +8,19 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,
 
 body {
     background-color: #202020;
-    background-image: url(../images/dark-blackboard.png)
+    background-image: url(../images/dark-blackboard.png);
+
+    .news{
+        color: #fff;
+
+        div{
+            margin-bottom: 20px;
+        }
+
+        h2{
+            margin-bottom: 50px;
+        }
+    }
 }
 
 @font-face {

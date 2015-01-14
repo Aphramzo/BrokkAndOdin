@@ -12,6 +12,12 @@ namespace BrokkAndOdin
 		public static string FlickrSecert { get { return ConfigurationManager.AppSettings["FlickrSecert"]; } }
 		public static string FlickrUser { get { return ConfigurationManager.AppSettings["FlickrUser"]; } }
 
+		public static string TwitterKey { get { return ConfigurationManager.AppSettings["TwitterKey"]; } }
+		public static string TwitterSecret { get { return ConfigurationManager.AppSettings["TwitterSecret"]; } }
+		public static string TwitterToken { get { return ConfigurationManager.AppSettings["TwitterToken"]; } }
+		public static string TwitterTokenSecret { get { return ConfigurationManager.AppSettings["TwitterTokenSecret"]; } }
+		public static string TwitterScreenName { get { return ConfigurationManager.AppSettings["TwitterScreenName"]; } }
+
 		public static DateTime Birthdate { get {return Convert.ToDateTime(ConfigurationManager.AppSettings["Birthdate"]);}}
 	}
 }

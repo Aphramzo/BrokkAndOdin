@@ -11,10 +11,12 @@ namespace BrokkAndOdin.Controllers
 	public class HomeController : Controller
 	{
 		private readonly IPictureRepo pictureRepo;
+		private readonly IUpdateRepo updateRepo;
 
-		public HomeController(IPictureRepo _pictureRepo)
+		public HomeController(IPictureRepo _pictureRepo, IUpdateRepo _updateRepo)
 		{
 			pictureRepo = _pictureRepo;
+			updateRepo = _updateRepo;
 		}
 
 		[HttpGet]
@@ -34,6 +36,7 @@ namespace BrokkAndOdin.Controllers
 			else{
 				viewModel.Photos = pictureRepo.GetPhotoById(photo);
 			}
+			
 			return View(viewModel);
 		}
 
@@ -45,5 +48,15 @@ namespace BrokkAndOdin.Controllers
 			return View(viewModel);
 		}
 
+		[HttpGet]
+		[Route("News")]
+		public ActionResult News()
+		{
+			var updates = updateRepo.GetLatestUpdates();
+			return View(new NewsViewModel()
+			{
+				Updates = updates
+			});
+		}
 	}
 }

@@ -13,6 +13,7 @@ namespace BrokkAndOdin
             
 			//TODO: config base this shit - no good if its in code like this
 			container.RegisterType<IPictureRepo, FlickrPictureRepo>();
+			container.RegisterType<IUpdateRepo, TwitterUpdateRepo>();
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }

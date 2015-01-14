@@ -21,6 +21,10 @@ namespace BrokkAndOdin
 					.ForMember(dest => dest.ThumbnailUrl, opt => opt.MapFrom(src => src.SquareThumbnailUrl))
 					.ForMember(dest => dest.FullUrl, opt => opt.MapFrom(src => src.LargeUrl))
 					.ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.PhotoId));
+
+				cfg.CreateMap<TweetSharp.TwitterStatus, Models.Update>()
+					.ForMember(dest => dest.UpdateDateTime, opt => opt.MapFrom(src => src.CreatedDate))
+					.ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.TextAsHtml));
 			});
 		}
 	}

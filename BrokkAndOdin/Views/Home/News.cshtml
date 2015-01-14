@@ -1,0 +1,16 @@
+﻿@model BrokkAndOdin.ViewModels.NewsViewModel
+@{
+    ViewBag.Title = "News";
+}
+
+<section class="news">
+    <h2>News</h2>
+    @foreach (var news in Model.Updates)
+    {
+        <div>
+            <label>@news.UpdateDateTime</label>
+            <p>@news.Description</p>
+        </div>
+    }
+</section>
+
