@@ -30,10 +30,13 @@
 @using (Html.BeginForm())
 {
     <nav class="row">
-        <div class="col-md-8 chalkboard title hidden-for-mobile">
+        <div class="col-md-3 chalkboard title hidden-for-mobile">
             <a href="/">Brokk & Odin</a>
         </div>
-        <div class="col-md-3 col-xs-9">
+        <div class="col-md-5 col-xs-2 title news">
+            @Html.ActionLink("News", "News", "Home")
+        </div>
+        <div class="col-md-3 col-xs-7">
             <div class="input-group search-box">
                 @Html.TextBoxFor(m => m.SearchString, null, new { @class = "form-control", placeholder = "search" })
                 <div class="input-group-btn">

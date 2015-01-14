@@ -36,6 +36,12 @@ body {
 .title{
     font-size: 1.72em;
     padding-left: 26px;
+
+    &.news{
+        a{
+            text-decoration: underline;
+        }
+    }
 }
 
 nav{
