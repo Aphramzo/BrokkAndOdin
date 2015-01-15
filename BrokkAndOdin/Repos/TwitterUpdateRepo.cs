@@ -31,7 +31,11 @@ namespace BrokkAndOdin.Repos
 				ScreenName = AppConfig.TwitterScreenName
 			});
 			
-
+			//lazy way to adjust timezone
+			foreach (var tweet in tweets)
+			{
+				tweet.CreatedDate = tweet.CreatedDate.AddHours(-7);
+			}
 
 			return Mapper.Map<IList<Models.Update>>(tweets);
 		}
