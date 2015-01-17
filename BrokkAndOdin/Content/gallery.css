@@ -1,8 +1,4 @@
-﻿nav {
-  background-color: rgba(125, 125, 125, 0.33);
-  padding: 10px 0; }
-
-.es-carousel-wrapper {
+﻿.es-carousel-wrapper {
   background: rgba(125, 125, 125, 0.33);
   padding: 0 27px 10px;
   position: relative; }
@@ -114,9 +110,5 @@
   z-index: 100;
   border-radius: 10px;
   opacity: 0.7; }
-
-.rounded-bottom {
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px; }
 
 /*# sourceMappingURL=gallery.css.map */

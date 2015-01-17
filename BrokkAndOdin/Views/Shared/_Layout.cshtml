@@ -10,10 +10,16 @@
 </head>
 <body>
     <section class="container">
+        <nav class="row">
+            <div class="col-md-3 chalkboard title hidden-for-mobile">
+                <a href="/">Brokk & Odin</a>
+            </div>
+            @RenderSection("navBar", required: false)
+        </nav>
         @RenderBody()
     </section>
-    
-    
+
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

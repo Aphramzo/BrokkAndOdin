@@ -18,9 +18,45 @@ body {
         }
 
         h2{
-            margin-bottom: 50px;
+            margin: 25px 0;
         }
     }
+
+    .nav-background{
+        background-color: $navBackgroundColor;
+    }
+
+    nav {
+        background-color: $navBackgroundColor;
+        padding: 10px 0;
+
+        > div:last-child{
+            padding-right: 27px;
+            text-align: right;
+        }   
+        a{
+            color: $fontColor;
+            &:hover, &:active, &:visited{
+                text-decoration: none;
+                color: $fontColor;
+            }
+
+        }
+
+        .input-group-btn, .btn{
+            height: $input-height-base;
+        }
+    }
+
+    video{
+        max-width: 100%;
+    }
+
+    .rounded-bottom{
+        border-bottom-left-radius: $borderRadius;
+        border-bottom-right-radius: $borderRadius;
+    }
+
 }
 
 @font-face {
@@ -43,29 +79,5 @@ body {
         }
     }
 }
-
-nav{
-    > div:last-child{
-        padding-right: 27px;
-        text-align: right;
-    }   
-    a{
-        color: $fontColor;
-        &:hover, &:active, &:visited{
-            text-decoration: none;
-            color: $fontColor;
-        }
-
-    }
-
-    .input-group-btn, .btn{
-        height: $input-height-base;
-    }
-}
-
-video{
-    max-width: 100%;
-}
-
 
 @import '_siteTabletDown.scss';

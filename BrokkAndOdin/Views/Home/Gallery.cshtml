@@ -27,12 +27,10 @@
 @section styles{
     @Styles.Render("~/Content/gallery")
 }
-@using (Html.BeginForm())
-{
-    <nav class="row">
-        <div class="col-md-3 chalkboard title hidden-for-mobile">
-            <a href="/">Brokk & Odin</a>
-        </div>
+@section navBar{
+    @using (Html.BeginForm())
+    {
+
         <div class="col-md-5 col-xs-2 title news">
             @Html.ActionLink("News", "News", "Home")
         </div>
@@ -51,15 +49,8 @@
                 <i class="fa fa-calendar"></i>
             </span>
         </div>
-        @*
-        <div class="col-md-1 col-sm-2 col-xs-3 rg-view">
-            <a href="#" class="rg-view-thumbs rg-view-selected"></a>
-            <a href="#" class="rg-view-full"></a>
-        </div>
-        *@
-    </nav>
+    }
 }
-
 <div id="rg-gallery" class="rg-gallery row">
     <div class="rg-thumbs">
         <!-- Elastislide Carousel Thumbnail Viewer -->
