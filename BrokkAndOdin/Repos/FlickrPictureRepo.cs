@@ -11,17 +11,11 @@ namespace BrokkAndOdin.Repos
 	public class FlickrPictureRepo : IPictureRepo
 	{
 		public int PicturesPerPage = 50;
-		private Flickr _flickr { get; set; }
 		private Flickr _Flickr
 		{
 			get
 			{
-				if (_flickr == null)
-				{
-					var flickr = new Flickr(AppConfig.FlickrKey, AppConfig.FlickrSecert);
-					_flickr = flickr;
-				}
-				return _flickr;
+				return new Flickr(AppConfig.FlickrKey, AppConfig.FlickrSecert);
 			}
 		}
 
