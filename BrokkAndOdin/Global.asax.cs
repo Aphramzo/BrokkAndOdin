@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using StackExchange.Profiling;
 
 namespace BrokkAndOdin
 {
@@ -19,5 +20,18 @@ namespace BrokkAndOdin
 			MappingConfig.RegisterMappings();
 			UnityConfig.RegisterComponents(); 
         }
+
+		protected void Application_BeginRequest()
+		{
+			if (Request.IsLocal)
+			{
+				MiniProfiler.Start();
+			}
+		}
+
+		protected void Application_EndRequest()
+		{
+			MiniProfiler.Stop();
+		}
     }
 }

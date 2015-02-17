@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BrokkAndOdin.ViewModels;
+using StackExchange.Profiling;
 
 namespace BrokkAndOdin.Controllers
 {
@@ -34,7 +35,10 @@ namespace BrokkAndOdin.Controllers
 				viewModel.Photos = pictureRepo.GetLatestPhotos();
 			}
 			else{
-				viewModel.Photos = pictureRepo.GetPhotoById(photo);
+				using (MiniProfiler.Current.Step("Getting Photos From Repo"))
+				{
+					viewModel.Photos = pictureRepo.GetPhotoById(photo);
+				}
 			}
 			
 			return View(viewModel);

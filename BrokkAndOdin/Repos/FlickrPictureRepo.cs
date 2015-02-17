@@ -5,12 +5,14 @@ using System.Linq;
 using System.Web;
 using BrokkAndOdin.Models;
 using AutoMapper;
+using StackExchange.Profiling;
 
 namespace BrokkAndOdin.Repos
 {
 	public class FlickrPictureRepo : IPictureRepo
 	{
 		public int PicturesPerPage = 50;
+		private static string FlickrVideoUrl = "https://www.flickr.com/photos/{0}/{1}/play/site/{2}/";
 		private Flickr _Flickr
 		{
 			get
@@ -21,18 +23,31 @@ namespace BrokkAndOdin.Repos
 
 		public IList<Models.Photo> GetLatestPhotos()
 		{
-			return GetLatestPhotos(1);
+			using (MiniProfiler.Current.Step("Getting Latest Flickr Photos"))
+			{
+				return GetLatestPhotos(1);
+			}
 		}
 
 		public IList<Models.Photo> GetLatestPhotos(int pageNumber)
 		{
-			var flickrPhotos = _Flickr.PeopleGetPublicPhotos(
+			PhotoCollection flickrPhotos;
+			IList<Models.Photo> photos;
+			using (MiniProfiler.Current.Step("Getting Latest Flickr Photos For Page"))
+			{
+				flickrPhotos = _Flickr.PeopleGetPublicPhotos(
 				AppConfig.FlickrUser, 
 				pageNumber,
 				PicturesPerPage,
 				SafetyLevel.Safe,
 				PhotoSearchExtras.DateTaken | PhotoSearchExtras.Description | PhotoSearchExtras.Tags);
-			var photos = Mapper.Map<IList<Models.Photo>>(flickrPhotos);
+			}
+
+			using (MiniProfiler.Current.Step("Mapping Latest Flickr Photos to Photos"))
+			{
+				photos = Mapper.Map<IList<Models.Photo>>(flickrPhotos);
+			}
+			
 			PopulateVideoUrls(photos);
 
 			return photos.OrderByDescending(x => x.DateTaken).ToList();
@@ -40,39 +55,53 @@ namespace BrokkAndOdin.Repos
 
 		public IList<Models.Photo> SearchPhotos(string searchString, DateTime? startDate, DateTime? endDate)
 		{
-			var flickrPhotos = _Flickr.PhotosSearch(new PhotoSearchOptions
+			PhotoCollection flickrPhotos;
+			IList<Models.Photo> photos;
+			using (MiniProfiler.Current.Step("Searching Flicker Photos"))
 			{
-				UserId = AppConfig.FlickrUser,
-				Text = searchString,
-				Extras = PhotoSearchExtras.DateTaken | PhotoSearchExtras.Description | PhotoSearchExtras.Tags,
-				MaxTakenDate = endDate.HasValue ? endDate.Value : DateTime.Now,
-				MinTakenDate = startDate.HasValue ? startDate.Value : AppConfig.Birthdate
-			});
-			var photos = Mapper.Map<IList<Models.Photo>>(flickrPhotos).OrderByDescending(x => x.DateTaken).ToList();
+				flickrPhotos = _Flickr.PhotosSearch(new PhotoSearchOptions
+				{
+					UserId = AppConfig.FlickrUser,
+					Text = searchString,
+					Extras = PhotoSearchExtras.DateTaken | PhotoSearchExtras.Description | PhotoSearchExtras.Tags,
+					MaxTakenDate = endDate.HasValue ? endDate.Value : DateTime.Now,
+					MinTakenDate = startDate.HasValue ? startDate.Value : AppConfig.Birthdate
+				});
+			}
+			using (MiniProfiler.Current.Step("Mapping Latest Flickr Photos to Photos"))
+			{
+				photos = Mapper.Map<IList<Models.Photo>>(flickrPhotos).OrderByDescending(x => x.DateTaken).ToList();
+			}
+
 			PopulateVideoUrls(photos);
 			return photos;
 		}
 
 		public IList<Models.Photo> GetPhotoById(string photo)
 		{
-			var flickrPhoto = _Flickr.PhotosGetInfo(photo);
-			var photos = new List<Models.Photo>();
-			photos.Add(Mapper.Map<Models.Photo>(flickrPhoto));
-			PopulateVideoUrls(photos);
-			return photos;
+			using (MiniProfiler.Current.Step("Getting Photo By Id"))
+			{
+				var flickrPhoto = _Flickr.PhotosGetInfo(photo);
+				var photos = new List<Models.Photo>();
+				photos.Add(Mapper.Map<Models.Photo>(flickrPhoto));
+				PopulateVideoUrls(photos);
+				return photos;
+			}
 		}
 
 		private void PopulateVideoUrls(IList<Models.Photo> photos)
 		{
-			photos.Where(c => c.Tags.Contains("video")).ToList().ForEach(x => PopulateVideoUrl(x));
+			using (MiniProfiler.Current.Step("PopulateVideoUrls"))
+			{
+				photos.Where(c => c.Tags.Contains("video")).ToList().ForEach(x => PopulateVideoUrl(x));
+			}
 		}
 
 		private void PopulateVideoUrl(Models.Photo photo)
 		{
-			var sizes = _Flickr.PhotosGetSizes(photo.Id);
-			if (sizes.Any(x => x.Label == "Site MP4"))
+			using (MiniProfiler.Current.Step("Populate Video URL"))
 			{
-				photo.VideoUrl = sizes.First(c => c.Label == "Site MP4").Source;
+				photo.VideoUrl =  String.Format(FlickrVideoUrl, AppConfig.FlickrUser, photo.Id, photo.PhotoSecret);
 			}
 		}
 	}
