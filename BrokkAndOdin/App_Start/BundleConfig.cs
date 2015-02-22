@@ -30,7 +30,8 @@ namespace BrokkAndOdin
 					  "~/Scripts/jquery.tmpl.min.js",
 					  "~/Scripts/moment.js",
 					  "~/Scripts/dateRangePicker.js",
-					  "~/Scripts/home.js"));
+					  "~/Scripts/home.js",
+					  "~/Scripts/imageOptions.js"));
 
 			bundles.Add(new StyleBundle("~/Content/css").Include(
 					  "~/Content/site.css"));

@@ -57,6 +57,17 @@ body {
         border-bottom-right-radius: $borderRadius;
     }
 
+    .rg-image{
+        #image-overlay{
+            position: absolute;
+            background-color: $navBackgroundColor;
+            color: $fontColor;
+            top: 0;
+            text-align: right;
+            width: 100%;
+            display:none;
+        }
+    }
 }
 
 @font-face {

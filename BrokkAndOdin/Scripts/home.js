@@ -19,4 +19,7 @@
             $('#EndDate').val(end.format('MM/DD/YYYY'));
         }
     );
+
+    var imageOptions = new ImageOptions();
+    imageOptions.initialize('.rg-image img');
 });
