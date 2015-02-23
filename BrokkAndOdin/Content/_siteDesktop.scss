@@ -1,0 +1,10 @@
+﻿@media (min-width: $screen-md) {
+    body{
+        nav{
+             > div:last-child{
+                 padding-right: 27px;
+            }
+                
+        }
+    }
+}

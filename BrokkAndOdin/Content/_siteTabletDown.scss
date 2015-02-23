@@ -10,4 +10,12 @@
     .title{
         font-size: 1.2em;
     }
+
+    .menu{
+        .dropdown{
+            .dropdown-menu{
+                min-width: 75px;
+            }
+        }
+    }
 }

@@ -4912,7 +4912,6 @@ body {
     body nav .title a {
       color: #fff; }
     body nav > div:last-child {
-      padding-right: 27px;
       text-align: right; }
   body video {
     max-width: 100%; }
@@ -4945,6 +4944,11 @@ body {
   .title.news a {
     text-decoration: underline; }
 
+@media (min-width: 992px) {
+  body nav > div:last-child {
+    padding-right: 27px; }
+ }
+
 @media (max-width: 992px) {
   .hidden-for-mobile {
     display: none; }
@@ -4954,6 +4958,9 @@ body {
 
   .title {
     font-size: 1.2em; }
+
+  .menu .dropdown .dropdown-menu {
+    min-width: 75px; }
  }
 
 /*# sourceMappingURL=site.css.map */

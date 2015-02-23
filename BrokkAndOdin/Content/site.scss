@@ -41,7 +41,6 @@ body {
         }
 
         > div:last-child{
-            padding-right: 27px;
             text-align: right;
         } 
     }
@@ -93,4 +92,5 @@ body {
     }
 }
 
-@import '_siteTabletDown.scss';
+@import '_siteDesktop';
+@import '_siteTabletDown';
