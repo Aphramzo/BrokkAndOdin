@@ -20,7 +20,6 @@ namespace BrokkAndOdin
 						"~/Scripts/modernizr-*"));
 
 			bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-					  "~/Scripts/bootstrap.js",
 					  "~/Scripts/respond.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/gallery").Include(
@@ -34,10 +33,11 @@ namespace BrokkAndOdin
 					  "~/Scripts/imageOptions.js"));
 
 			bundles.Add(new StyleBundle("~/Content/css").Include(
-					  "~/Content/Stylesheets/global.css"));
+					  "~/Content/Stylesheets/bootstrap.css",
+					  "~/Content/Stylesheets/site.css"));
 
 			bundles.Add(new StyleBundle("~/Content/gallery").Include(
-					  "~/Content/gallery.css",
+					  "~/Content/Stylesheets/gallery.css",
 					  "~/Content/dateRangePicker.css"));
 		}
 	}

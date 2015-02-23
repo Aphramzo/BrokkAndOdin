@@ -1,26 +1,25 @@
 ﻿module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        sass: {    
-            options: {
-                compass: true  
-            },
+        less: {    
             dev: {
                 files: {
-                    'Content/Stylesheets/global.css': 'Content/site.scss'
+                    'Content/Stylesheets/site.css': 'Content/site.less',
+                    'Content/Stylesheets/gallery.css': 'Content/gallery.less',
+                    'Content/Stylesheets/bootstrap.css': 'Content/bootstrap-custom.less'
                 }
             }
         },
         watch: {
-            files: ['**/*.scss'],
-            tasks: ['sass']
+            files: ['**/*.less'],
+            tasks: ['less']
         }
     });
 
-    grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-newer');
 
-    grunt.registerTask('default', ['sass', 'newer:watch']);
-    grunt.registerTask('build', ['sass']);
+    grunt.registerTask('default', ['less', 'newer:watch']);
+    grunt.registerTask('build', ['less']);
 }

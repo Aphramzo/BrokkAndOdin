@@ -1,0 +1,96 @@
+﻿@import "bootstrap/variables";
+@import '_variables';
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { 
+	margin:0;
+	padding:0;
+}
+
+body {
+    background-color: #202020;
+    background-image: url(/images/dark-blackboard.png);
+
+    .news{
+        color: #fff;
+
+        div{
+            margin-bottom: 20px;
+        }
+
+        h2{
+            margin: 25px 0;
+        }
+    }
+
+    .nav-background{
+        background-color: @navBackgroundColor;
+    }
+
+    nav {
+        background-color: @navBackgroundColor;
+        padding: 10px 0;
+  
+        .input-group-btn, .btn{
+            height: @input-height-base;
+        }
+
+        .title{
+            a{
+                color: @fontColor;
+            }
+        }
+
+        > div:last-child{
+            text-align: right;
+        } 
+    }
+
+    video{
+        max-width: 100%;
+    }
+
+    .rounded-bottom{
+        border-bottom-left-radius: @borderRadius;
+        border-bottom-right-radius: @borderRadius;
+    }
+
+    .rg-image{
+        #image-overlay{
+            position: absolute;
+            background-color: @navBackgroundColor;
+            color: @fontColor;
+            top: 0;
+            text-align: right;
+            width: 100%;
+            display:none;
+        }
+    }
+}
+
+.dropdown-menu > li > a{
+    color: #262626;
+}
+
+@font-face {
+    font-family: 'ChalkBoard'; 
+    src: url(/fonts/chalkBoard.ttf); 
+}
+
+.chalkboard {
+    font-family: ChalkBoard;
+    color: @fontColor;
+}
+
+.title{
+    font-size: 1.72em;
+    padding-left: 26px;
+
+    &.news{
+        a{
+            text-decoration: underline;
+        }
+    }
+}
+
+@import '_siteDesktop';
+@import '_siteTabletDown';
