@@ -229,6 +229,7 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Gruntfile.js" />
     <Content Include="images\ajax-loader.gif" />
     <Content Include="images\dark-blackboard.png" />
     <Content Include="images\FullView.png" />
@@ -324,6 +325,7 @@
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.eot" />
     <Content Include="Content\_siteTabletDown.scss" />
     <Content Include="Content\_siteDesktop.scss" />
+    <Content Include="package.json" />
     <Content Include="Content\site.css.map">
       <DependentUpon>site.css</DependentUpon>
     </Content>
@@ -409,6 +411,9 @@
     </VisualStudio>
   </ProjectExtensions>
   <Import Project="..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets')" />
+  <PropertyGroup>
+    <PreBuildEvent>grunt build</PreBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

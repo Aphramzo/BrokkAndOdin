@@ -8,7 +8,7 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,
 
 body {
     background-color: #202020;
-    background-image: url(../images/dark-blackboard.png);
+    background-image: url(/images/dark-blackboard.png);
 
     .news{
         color: #fff;
@@ -73,7 +73,7 @@ body {
 
 @font-face {
     font-family: 'ChalkBoard'; 
-    src: url(../fonts/chalkBoard.ttf); 
+    src: url(/fonts/chalkBoard.ttf); 
 }
 
 .chalkboard {

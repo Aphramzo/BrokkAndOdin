@@ -34,7 +34,7 @@ namespace BrokkAndOdin
 					  "~/Scripts/imageOptions.js"));
 
 			bundles.Add(new StyleBundle("~/Content/css").Include(
-					  "~/Content/site.css"));
+					  "~/Content/Stylesheets/global.css"));
 
 			bundles.Add(new StyleBundle("~/Content/gallery").Include(
 					  "~/Content/gallery.css",
