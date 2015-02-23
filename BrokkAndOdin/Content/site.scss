@@ -29,23 +29,21 @@ body {
     nav {
         background-color: $navBackgroundColor;
         padding: 10px 0;
+  
+        .input-group-btn, .btn{
+            height: $input-height-base;
+        }
+
+        .title{
+            a{
+                color: $fontColor;
+            }
+        }
 
         > div:last-child{
             padding-right: 27px;
             text-align: right;
-        }   
-        a{
-            color: $fontColor;
-            &:hover, &:active, &:visited{
-                text-decoration: none;
-                color: $fontColor;
-            }
-
-        }
-
-        .input-group-btn, .btn{
-            height: $input-height-base;
-        }
+        } 
     }
 
     video{
@@ -68,6 +66,10 @@ body {
             display:none;
         }
     }
+}
+
+.dropdown-menu > li > a{
+    color: #262626;
 }
 
 @font-face {

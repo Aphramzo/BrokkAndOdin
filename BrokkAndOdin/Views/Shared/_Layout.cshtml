@@ -5,17 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Brokk And Odin</title>
     @Styles.Render("~/Content/css")
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     @RenderSection("styles", required: false)
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
     <section class="container">
         <nav class="row">
-            <div class="col-md-3 chalkboard title hidden-for-mobile">
+            <div class="col-md-3 chalkboard title">
                 <a href="/">Brokk & Odin</a>
             </div>
             @RenderSection("navBar", required: false)
+            <div class="col-md-2 col-xs-2 menu">
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                        Menu
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="/">
+                                <i class="fa fa-picture-o"></i>
+                                Pictures
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="/news">
+                                <i class="fa fa-newspaper-o"></i>
+                                News
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </nav>
         @RenderBody()
     </section>

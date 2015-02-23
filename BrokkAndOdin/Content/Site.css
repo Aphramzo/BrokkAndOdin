@@ -4907,16 +4907,13 @@ body {
   body nav {
     background-color: rgba(125, 125, 125, 0.33);
     padding: 10px 0; }
+    body nav .input-group-btn, body nav .btn {
+      height: 34px; }
+    body nav .title a {
+      color: #fff; }
     body nav > div:last-child {
       padding-right: 27px;
       text-align: right; }
-    body nav a {
-      color: #fff; }
-      body nav a:hover, body nav a:active, body nav a:visited {
-        text-decoration: none;
-        color: #fff; }
-    body nav .input-group-btn, body nav .btn {
-      height: 34px; }
   body video {
     max-width: 100%; }
   body .rounded-bottom {
@@ -4930,6 +4927,9 @@ body {
     text-align: right;
     width: 100%;
     display: none; }
+
+.dropdown-menu > li > a {
+  color: #262626; }
 
 @font-face {
   font-family: 'ChalkBoard';

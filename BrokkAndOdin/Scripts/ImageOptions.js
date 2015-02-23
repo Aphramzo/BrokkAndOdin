@@ -4,7 +4,7 @@ ImageOptions.prototype.initialize = function (imgSelector) {
     this.fields = {};
     this.fields.imageSelector = imgSelector;
     this.fields.overlay = $('<div id=\'image-overlay\' />');
-    this.fields.overlay.html('<div class="col-md-2 col-md-offset-9"><button id="share-button" class="btn btn-info"><span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span> Share</button></div>');
+    this.fields.overlay.html('<div class="col-md-2 col-md-offset-9"><button id="share-button" class="btn btn-info"><i class="fa fa-share"></i> Share</button></div>');
     this.setupListeners();
 };
 

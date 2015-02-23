@@ -30,29 +30,24 @@
 @section navBar{
     @using (Html.BeginForm())
     {
-
-        <div class="col-md-5 col-xs-2 title news">
-            @Html.ActionLink("News", "News", "Home")
-        </div>
-        <div class="col-md-3 col-xs-7">
+        @Html.HiddenFor(m => m.StartDate)
+        @Html.HiddenFor(m => m.EndDate)
+        <div class="col-md-7 col-xs-7">
             <div class="input-group search-box">
                 @Html.TextBoxFor(m => m.SearchString, null, new { @class = "form-control", placeholder = "search" })
                 <div class="input-group-btn">
                     <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                    
+                    <span class="btn btn-default btn-daterange">
+                        <i class="fa fa-calendar"></i>
+                    </span>
                 </div>
             </div>
-        </div>
-        <div class="col-xs-3 col-md-1">
-            @Html.HiddenFor(m => m.StartDate)
-            @Html.HiddenFor(m => m.EndDate)
-            <span class="btn btn-default btn-daterange">
-                <i class="fa fa-calendar"></i>
-            </span>
         </div>
     }
 }
 <div id="rg-gallery" class="rg-gallery row">
-    <div class="rg-thumbs">
+    <div class="rg-thumbs" style="display:@(Model.HideThumbs == true ? "block" : "none")">
         <!-- Elastislide Carousel Thumbnail Viewer -->
         <div class="es-carousel-wrapper rounded-bottom">
             <div class="es-nav">

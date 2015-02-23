@@ -12,5 +12,6 @@ namespace BrokkAndOdin.ViewModels
 		public DateTime? StartDate { get; set; }
 		public DateTime? EndDate { get; set; }
 		public string picture { get; set; }
+		public bool HideThumbs { get; set; }
 	}
 }
