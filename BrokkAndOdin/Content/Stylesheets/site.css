@@ -1,0 +1,109 @@
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #202020;
+  background-image: url(/images/dark-blackboard.png);
+}
+body .news {
+  color: #fff;
+}
+body .news div {
+  margin-bottom: 20px;
+}
+body .news h2 {
+  margin: 25px 0;
+}
+body .nav-background {
+  background-color: rgba(125, 125, 125, 0.33);
+}
+body nav {
+  background-color: rgba(125, 125, 125, 0.33);
+  padding: 10px 0;
+}
+body nav .input-group-btn,
+body nav .btn {
+  height: 34px;
+}
+body nav .title a {
+  color: #ffffff;
+}
+body nav > div:last-child {
+  text-align: right;
+}
+body video {
+  max-width: 100%;
+}
+body .rounded-bottom {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+body .rg-image #image-overlay {
+  position: absolute;
+  background-color: rgba(125, 125, 125, 0.33);
+  color: #ffffff;
+  top: 0;
+  text-align: right;
+  width: 100%;
+  display: none;
+}
+.dropdown-menu > li > a {
+  color: #262626;
+}
+@font-face {
+  font-family: 'ChalkBoard';
+  src: url(/fonts/chalkBoard.ttf);
+}
+.chalkboard {
+  font-family: ChalkBoard;
+  color: #ffffff;
+}
+.title {
+  font-size: 1.72em;
+  padding-left: 26px;
+}
+.title.news a {
+  text-decoration: underline;
+}
+@media (min-width: 992px) {
+  body nav > div:last-child {
+    padding-right: 27px;
+  }
+}
+@media (max-width: 992px) {
+  .hidden-for-mobile {
+    display: none;
+  }
+  .search-box {
+    padding-left: 12px;
+  }
+  .title {
+    font-size: 1.2em;
+  }
+  .menu .dropdown .dropdown-menu {
+    min-width: 75px;
+  }
+}
