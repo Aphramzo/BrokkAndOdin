@@ -28,7 +28,7 @@
     @Styles.Render("~/Content/gallery")
 }
 @section navBar{
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Gallery","Home"))
     {
         @Html.HiddenFor(m => m.StartDate)
         @Html.HiddenFor(m => m.EndDate)
@@ -47,7 +47,7 @@
     }
 }
 <div id="rg-gallery" class="rg-gallery row">
-    <div class="rg-thumbs" style="display:@(Model.HideThumbs == true ? "block" : "none")">
+    <div class="rg-thumbs" style="display:@(Model.HideThumbs == false ? "block" : "none")">
         <!-- Elastislide Carousel Thumbnail Viewer -->
         <div class="es-carousel-wrapper rounded-bottom">
             <div class="es-nav">

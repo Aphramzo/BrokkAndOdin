@@ -27,19 +27,19 @@ namespace BrokkAndOdin.Controllers
 			var viewModel = new GalleryViewModel
 			{
 				StartDate = AppConfig.Birthdate,
-				EndDate = DateTime.Now.AddDays(1)
+				EndDate = DateTime.Now.AddDays(1),
+				HideThumbs = false
 			};
 
 			if (string.IsNullOrEmpty(photo))
 			{
 				viewModel.Photos = pictureRepo.GetLatestPhotos();
-				viewModel.HideThumbs = true;
 			}
 			else{
 				using (MiniProfiler.Current.Step("Getting Photos From Repo"))
 				{
 					viewModel.Photos = pictureRepo.GetPhotoById(photo);
-					viewModel.HideThumbs = false;
+					viewModel.HideThumbs = true;
 				}
 			}
 			
@@ -51,6 +51,7 @@ namespace BrokkAndOdin.Controllers
 		public ActionResult Gallery(GalleryViewModel viewModel)
 		{
 			viewModel.Photos = pictureRepo.SearchPhotos(viewModel.SearchString, viewModel.StartDate, viewModel.EndDate);
+			viewModel.HideThumbs = false;
 			return View(viewModel);
 		}
 
