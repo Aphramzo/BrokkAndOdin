@@ -217,6 +217,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\dateRangePicker.css" />
+    <Content Include="Content\Stylesheets\bootstrap.css" />
+    <Content Include="Content\Stylesheets\gallery.css" />
+    <Content Include="Content\Stylesheets\site.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
