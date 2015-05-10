@@ -19,5 +19,10 @@ namespace BrokkAndOdin
 		public static string TwitterScreenName { get { return ConfigurationManager.AppSettings["TwitterScreenName"]; } }
 
 		public static DateTime Birthdate { get {return Convert.ToDateTime(ConfigurationManager.AppSettings["Birthdate"]);}}
+
+        public static string SiteName { get { return ConfigurationManager.AppSettings["SiteName"]; } }
+        public static string SiteTitle { get { return ConfigurationManager.AppSettings["SiteTitle"]; } }
+
+        public static bool ShowAge { get { return Convert.ToBoolean(ConfigurationManager.AppSettings["ShowAge"]); } }
 	}
 }

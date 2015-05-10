@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Brokk And Odin</title>
+    <title>@AppConfig.SiteTitle</title>
     @Styles.Render("~/Content/css")
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     @RenderSection("styles", required: false)
@@ -13,7 +13,7 @@
     <section class="container">
         <nav class="row">
             <div class="col-md-3 col-xs-6 chalkboard title">
-                <a href="/">Brokk & Odin</a>
+                <a href="/">@AppConfig.SiteName</a>
             </div>
             @RenderSection("navBar", required: false)
             <div class="col-xs-2 menu">

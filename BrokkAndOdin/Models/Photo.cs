@@ -33,10 +33,17 @@ namespace BrokkAndOdin.Models
 		{
 			get
 			{
-				if (!String.IsNullOrEmpty(Description))
-					return String.Format("{0} ({2}) - {1}", DateTaken.Value.ToShortDateString(), Description, AgeString);
-				else
-					return DateTaken.Value.ToShortDateString();
+                if (!String.IsNullOrEmpty(Description) && AppConfig.ShowAge)
+                {
+                    return String.Format("{0} ({2}) - {1}", DateTaken.Value.ToShortDateString(), Description, AgeString);
+                }
+                else if(!String.IsNullOrEmpty(Description))
+                {
+                    return String.Format("{0} - {1}", DateTaken.Value.ToShortDateString(), Description, AgeString);
+                }
+                
+                return DateTaken.Value.ToShortDateString();
+                	
 			}
 		}
 
