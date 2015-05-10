@@ -301,6 +301,10 @@
     <Content Include="Content\bootstrap\variables.less" />
     <Content Include="Content\bootstrap\wells.less" />
     <Content Include="Content\bootstrap-custom.less" />
+    <None Include=".bin\git.cmd" />
+    <None Include=".bin\grunt.cmd" />
+    <None Include=".bin\node.cmd" />
+    <None Include=".bin\npm.cmd" />
     <None Include="Content\gallery.less" />
     <None Include="Content\site.less" />
     <Content Include="fonts\chalkBoard.ttf" />
@@ -382,16 +386,17 @@
   </ProjectExtensions>
   <Import Project="..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets')" />
   <PropertyGroup>
-    <PreBuildEvent>grunt build</PreBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PostBuildEvent>
     </PostBuildEvent>
   </PropertyGroup>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
-       Other similar extension points exist, see Microsoft.Common.targets.
+
   <Target Name="BeforeBuild">
+	<Exec Command=".bin\grunt build" />
   </Target>
   <Target Name="AfterBuild">
-  </Target> -->
+  </Target> 
 </Project>
