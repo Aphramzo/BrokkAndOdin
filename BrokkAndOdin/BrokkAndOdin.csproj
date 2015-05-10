@@ -393,10 +393,10 @@
     <PostBuildEvent>
     </PostBuildEvent>
   </PropertyGroup>
-
+<!--
   <Target Name="BeforeBuild">
 	<Exec Command=".bin\grunt build" />
   </Target>
   <Target Name="AfterBuild">
-  </Target> 
+  </Target>  -->
 </Project>
