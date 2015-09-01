@@ -3,12 +3,16 @@
     ViewBag.Title = "News";
 }
 
+@section styles{
+    @Styles.Render("~/Content/news")
+}
+
 @section navBar{
     <div class="col-md-7 col-xs-2">
         &nbsp;
     </div>
 }
-<div class="nav-background row rounded-bottom">&nbsp;</div>
+
 <section class="news">
     <h2>News</h2>
     @foreach (var news in Model.Updates)

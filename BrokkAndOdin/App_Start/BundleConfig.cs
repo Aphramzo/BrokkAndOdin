@@ -40,6 +40,9 @@ namespace BrokkAndOdin
 					  "~/Content/Stylesheets/gallery.css",
 					  "~/Content/dateRangePicker.css"));
 
+            bundles.Add(new StyleBundle("~/Content/news").Include(
+                      "~/Content/Stylesheets/news.css"));
+
             bundles.Add(new StyleBundle("~/Content/video").Include(
                       "~/Content/Stylesheets/video.css"));
 

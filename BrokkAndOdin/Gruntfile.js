@@ -7,7 +7,8 @@
                     'Content/Stylesheets/site.css': 'Content/site.less',
                     'Content/Stylesheets/gallery.css': 'Content/gallery.less',
                     'Content/Stylesheets/bootstrap.css': 'Content/bootstrap-custom.less',
-                    'Content/Stylesheets/video.css': 'Content/video.less'
+                    'Content/Stylesheets/video.css': 'Content/video.less',
+                    'Content/Stylesheets/news.css': 'Content/news.less'
                 }
             }
         },

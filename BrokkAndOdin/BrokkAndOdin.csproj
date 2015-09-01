@@ -308,6 +308,7 @@
     <None Include=".bin\node.cmd" />
     <None Include=".bin\npm.cmd" />
     <None Include="Content\gallery.less" />
+    <Content Include="Content\news.less" />
     <None Include="Content\site.less" />
     <Content Include="fonts\chalkBoard.ttf" />
     <Content Include="Content\video.less" />

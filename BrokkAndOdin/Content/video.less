@@ -36,12 +36,26 @@ nav{
 
 @media (max-width: 768px) {
     .video-list{
+        max-height: 100px;
+        white-space: nowrap;
+        overflow-y: hidden;
+
         a{
-            display: inline;
-            float: left;
+            display: inline-block;
+            max-width: 33%;
+            vertical-align: top;
+
             img{
-                width: auto;
+                width: 100%;
             }
+        }
+    }
+}
+
+@media (max-width: 768px) and (min-width: 400px){
+    .video-list{
+        a{
+            max-width: 25%;
         }
     }
 }
