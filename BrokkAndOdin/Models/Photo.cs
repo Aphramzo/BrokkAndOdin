@@ -14,6 +14,7 @@ namespace BrokkAndOdin.Models
 		public DateTime? DateTaken { get; set; }
 		public string ThumbnailUrl { get; set; }
 		public string FullUrl { get; set; }
+        public string SmallUrl { get; set; }
 		public string Description { get; set;}
 		public IList<String> Tags { get; set; }
 		public GeoCoordinate Coords { get; set; }

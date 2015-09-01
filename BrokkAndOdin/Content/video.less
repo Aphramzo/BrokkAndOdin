@@ -1,0 +1,47 @@
+﻿video{
+    width: 100%;
+}
+
+nav{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.video-list{
+    max-height: 525px;
+    overflow: auto;
+
+    a{
+        display: block;
+        opacity: .5;
+        border: none;
+        
+        &.currentvid{
+            opacity: 1;
+            border: 1px solid #FFF;
+        }
+
+        img{
+            width: 100%;
+        }
+    }
+}
+
+.page-container{
+    margin-top: 10px;
+    background-color: rgba(0, 0, 0, 0.33);
+    padding: 15px 5px 10px 5px;
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .video-list{
+        a{
+            display: inline;
+            float: left;
+            img{
+                width: auto;
+            }
+        }
+    }
+}

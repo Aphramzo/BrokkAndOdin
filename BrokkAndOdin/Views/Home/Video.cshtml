@@ -1,0 +1,36 @@
+﻿@model BrokkAndOdin.ViewModels.VideoViewModel
+@{
+    ViewBag.Title = "Home Movies";
+}
+
+@section scripts{
+    @Scripts.Render("~/bundles/video")
+}
+
+@section styles{
+    @Styles.Render("~/Content/video")
+}
+
+@section navBar{
+    <div class="col-md-7 col-xs-2">
+        &nbsp;
+    </div>
+}
+
+<div class="row page-container">
+    <div class="col-md-10">
+        <video controls poster="@Model.Videos.First().FullUrl">
+            <source src="@Model.Videos.First().VideoUrl" type="video/mp4">
+        </video>
+    </div>
+    <div class="col-md-2">
+        <div class="video-list">
+            @foreach (var video in Model.Videos)
+            {
+                <a href="@video.VideoUrl">
+                    <img src="@video.SmallUrl" alt="@video.Title">
+                </a>
+            }
+        </div>
+    </div>
+</div>

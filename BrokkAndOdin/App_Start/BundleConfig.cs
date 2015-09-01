@@ -39,6 +39,12 @@ namespace BrokkAndOdin
 			bundles.Add(new StyleBundle("~/Content/gallery").Include(
 					  "~/Content/Stylesheets/gallery.css",
 					  "~/Content/dateRangePicker.css"));
+
+            bundles.Add(new StyleBundle("~/Content/video").Include(
+                      "~/Content/Stylesheets/video.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/video").Include(
+                      "~/Scripts/video.js"));
 		}
 	}
 }

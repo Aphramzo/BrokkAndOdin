@@ -214,6 +214,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\GalleryViewModel.cs" />
     <Compile Include="ViewModels\NewsViewModel.cs" />
+    <Compile Include="ViewModels\VideoViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\dateRangePicker.css" />
@@ -308,6 +309,7 @@
     <None Include="Content\gallery.less" />
     <None Include="Content\site.less" />
     <Content Include="fonts\chalkBoard.ttf" />
+    <Content Include="Content\video.less" />
     <None Include="Content\_variables.less" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.ttf" />
@@ -334,6 +336,7 @@
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\video.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -348,6 +351,7 @@
     <Content Include="Views\Home\Gallery.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\News.cshtml" />
+    <Content Include="Views\Home\Video.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -393,7 +397,7 @@
     <PostBuildEvent>
     </PostBuildEvent>
   </PropertyGroup>
-<!--
+  <!--
   <Target Name="BeforeBuild">
 	<Exec Command=".bin\grunt build" />
   </Target>

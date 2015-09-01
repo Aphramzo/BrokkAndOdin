@@ -65,5 +65,15 @@ namespace BrokkAndOdin.Controllers
 				Updates = updates
 			});
 		}
+
+	    [HttpGet]
+	    [Route("VideoFilms")]
+	    public ActionResult Video()
+	    {
+            return View(new VideoViewModel
+            {
+                Videos = pictureRepo.SearchPhotos("video", AppConfig.Birthdate, DateTime.Now.AddDays(1))
+            });
+	    }
 	}
 }
