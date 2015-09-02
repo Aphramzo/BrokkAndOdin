@@ -25,11 +25,13 @@
     </div>
     <div class="col-md-2">
         <div class="video-list">
+            @{ var index = 0; }
             @foreach (var video in Model.Videos)
             {
-                <a href="@video.VideoUrl">
+                <a href="@video.VideoUrl" data-index="@index">
                     <img src="@video.SmallUrl" alt="@video.Title">
                 </a>
+                index++;
             }
         </div>
     </div>
