@@ -92,5 +92,38 @@ body {
     }
 }
 
+.pulsate {
+    -webkit-animation: pulsate 1s ease-out;
+    -webkit-animation-iteration-count: 2; 
+    -moz-animation: pulsate 1s ease-out;
+    -moz-animation-iteration-count: 2; 
+    animation: pulsate 1s ease-out;
+    animation-iteration-count: 2; 
+    opacity: 0;
+}
+@-webkit-keyframes pulsate {
+    0% { 
+        opacity: 0.5;
+    }
+    50% { 
+        opacity: 1.0;
+    }
+    100% { 
+        opacity: 0.5;
+    }
+}
+
+@-moz-keyframes pulsate {
+    0% { 
+        opacity: 0.5;
+    }
+    50% { 
+        opacity: 1.0;
+    }
+    100% { 
+        opacity: 0.5;
+    }
+}
+
 @import '_siteDesktop';
 @import '_siteTabletDown';

@@ -321,6 +321,7 @@
     <None Include="Content\_siteDesktop.less" />
     <Content Include="package.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\clipboard.min.js" />
     <Content Include="Scripts\dateRangePicker.js" />
     <Content Include="Scripts\gallery.js" />
     <Content Include="Scripts\home.js" />

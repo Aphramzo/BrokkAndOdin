@@ -22,7 +22,7 @@ namespace BrokkAndOdin.Controllers
 
 		[HttpGet]
 		[Route("")]
-		public ActionResult Gallery(string photo)
+		public ActionResult Gallery(string photo, string q)
 		{
 			var viewModel = new GalleryViewModel
 			{
@@ -31,22 +31,31 @@ namespace BrokkAndOdin.Controllers
 				HideThumbs = false
 			};
 
-			if (string.IsNullOrEmpty(photo))
+			if (string.IsNullOrEmpty(photo) && string.IsNullOrEmpty(q))
 			{
 				viewModel.Photos = pictureRepo.GetLatestPhotos();
 			}
-			else{
+			else if(!string.IsNullOrEmpty(photo))
+            {
 				using (MiniProfiler.Current.Step("Getting Photos From Repo"))
 				{
 					viewModel.Photos = pictureRepo.GetPhotoById(photo);
 					viewModel.HideThumbs = true;
 				}
 			}
+            else if (!string.IsNullOrEmpty(q))
+            {
+                using (MiniProfiler.Current.Step("Getting Photos by shared query"))
+                {
+                    ConvertQueryStringParametersToViewModel(q, viewModel);
+                    viewModel.Photos = pictureRepo.SearchPhotos(viewModel.SearchString, viewModel.StartDate, viewModel.EndDate);
+                }
+            }
 			
 			return View(viewModel);
 		}
 
-		[HttpPost]
+	    [HttpPost]
 		[Route("")]
 		public ActionResult Gallery(GalleryViewModel viewModel)
 		{
@@ -75,5 +84,27 @@ namespace BrokkAndOdin.Controllers
                 Videos = pictureRepo.SearchPhotos("video", AppConfig.Birthdate, DateTime.Now.AddDays(1))
             });
 	    }
+
+        private void ConvertQueryStringParametersToViewModel(string q, GalleryViewModel viewModel)
+        {
+            var query = HttpUtility.UrlDecode(q);
+            var queryArr = query.Split('&');
+            foreach (var parameter in queryArr)
+            {
+                var paramValue = parameter.Split('=');
+                switch (paramValue[0])
+                {
+                    case "w":
+                        viewModel.SearchString = paramValue[1];
+                        break;
+                    case "s":
+                        viewModel.StartDate = Convert.ToDateTime(paramValue[1]);
+                        break;
+                    case "e":
+                        viewModel.EndDate = Convert.ToDateTime(paramValue[1]);
+                        break;
+                }
+            }
+        }
 	}
 }

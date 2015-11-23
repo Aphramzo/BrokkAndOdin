@@ -13,5 +13,10 @@ namespace BrokkAndOdin.ViewModels
 		public DateTime? EndDate { get; set; }
 		public string picture { get; set; }
 		public bool HideThumbs { get; set; }
+
+	    public string ShareableLink
+	    {
+            get { return String.Format("q=w%3d{0}%26s%3D{1}%26e%3D{2}", HttpUtility.UrlEncode(SearchString), HttpUtility.UrlEncode(StartDate.ToString()), HttpUtility.UrlEncode(EndDate.ToString())); }
+	    }
 	}
 }

@@ -28,6 +28,7 @@ namespace BrokkAndOdin
 					  "~/Scripts/jquery.elastislide.js",
 					  "~/Scripts/jquery.tmpl.min.js",
 					  "~/Scripts/moment.js",
+                      "~/Scripts/clipboard.min.js",
 					  "~/Scripts/dateRangePicker.js",
 					  "~/Scripts/home.js",
 					  "~/Scripts/imageOptions.js"));

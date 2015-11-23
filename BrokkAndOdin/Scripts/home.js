@@ -22,4 +22,9 @@
 
     var imageOptions = new ImageOptions();
     imageOptions.initialize('.rg-image img');
+
+    var clipboard = new Clipboard('.btn-copy-share-link');
+    clipboard.on('success', function (e) {
+        $('#copySuccess').show().addClass('pulsate');
+    });
 });
