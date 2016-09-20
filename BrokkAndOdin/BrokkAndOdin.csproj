@@ -222,6 +222,7 @@
     <Content Include="Content\Stylesheets\bootstrap.css" />
     <Content Include="Content\Stylesheets\gallery.css" />
     <Content Include="Content\Stylesheets\news.css" />
+    <Content Include="Content\Stylesheets\rememberWhen.css" />
     <Content Include="Content\Stylesheets\site.css" />
     <Content Include="Content\Stylesheets\video.css" />
     <Content Include="favicon.ico" />
