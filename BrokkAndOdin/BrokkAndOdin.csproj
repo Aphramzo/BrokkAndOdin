@@ -214,6 +214,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\GalleryViewModel.cs" />
     <Compile Include="ViewModels\NewsViewModel.cs" />
+    <Compile Include="ViewModels\RememberWhenViewModel.cs" />
     <Compile Include="ViewModels\VideoViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -310,6 +311,7 @@
     <None Include=".bin\npm.cmd" />
     <None Include="Content\gallery.less" />
     <Content Include="Content\news.less" />
+    <Content Include="Content\rememberWhen.less" />
     <None Include="Content\site.less" />
     <Content Include="fonts\chalkBoard.ttf" />
     <Content Include="Content\video.less" />
@@ -356,6 +358,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\News.cshtml" />
     <Content Include="Views\Home\Video.cshtml" />
+    <Content Include="Views\Home\RememberWhen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

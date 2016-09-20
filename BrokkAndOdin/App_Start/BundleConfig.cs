@@ -47,6 +47,9 @@ namespace BrokkAndOdin
             bundles.Add(new StyleBundle("~/Content/video").Include(
                       "~/Content/Stylesheets/video.css"));
 
+            bundles.Add(new StyleBundle("~/Content/rememberWhen").Include(
+                       "~/Content/Stylesheets/rememberWhen.css"));
+
             bundles.Add(new ScriptBundle("~/bundles/video").Include(
                       "~/Scripts/video.js"));
 		}

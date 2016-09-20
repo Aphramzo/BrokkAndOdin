@@ -85,6 +85,27 @@ namespace BrokkAndOdin.Controllers
             });
 	    }
 
+	    [HttpGet]
+	    [Route("RememberWhen")]
+	    public ActionResult RememberWhen()
+	    {
+	        var weekAgo = DateTime.Now.Date.AddDays(-7);
+            var monthAgo = DateTime.Now.Date.AddMonths(-1);
+            var sixMonthsAgo = DateTime.Now.Date.AddMonths(-6);
+            var yearAgo = DateTime.Now.Date.AddYears(-1);
+
+	        var viewModel = new RememberWhenViewModel
+	        {
+                WeekAgo = pictureRepo.SearchPhotos(null, weekAgo, weekAgo.AddDays(1)),
+                MonthAgo = pictureRepo.SearchPhotos(null, monthAgo, monthAgo.AddDays(1)),
+                SixMonthsAgo = pictureRepo.SearchPhotos(null, sixMonthsAgo, sixMonthsAgo.AddDays(1)),
+                YearAgo = pictureRepo.SearchPhotos(null, yearAgo, yearAgo.AddDays(1))
+	        };
+
+
+	        return View(viewModel);
+	    }
+
         private void ConvertQueryStringParametersToViewModel(string q, GalleryViewModel viewModel)
         {
             var query = HttpUtility.UrlDecode(q);

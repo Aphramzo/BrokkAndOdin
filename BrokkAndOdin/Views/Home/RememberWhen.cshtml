@@ -1,0 +1,86 @@
+﻿@model BrokkAndOdin.ViewModels.RememberWhenViewModel
+@{
+    ViewBag.Title = "Member That Time";
+}
+
+@section navBar{
+    <div class="col-xs-8 col-md-7">
+        &nbsp;
+    </div>
+}
+
+@section styles{
+    @Styles.Render("~/Content/rememberWhen")
+}
+
+@if (Model.WeekAgo.Any())
+{
+    <ul>
+        <li>
+            <h3>
+                That a week ago this happened
+            </h3>
+        </li>
+        @foreach (var photo in Model.WeekAgo)
+        {
+            <li>
+                <p>@photo.Description</p>
+                <img src="@photo.FullUrl"/>
+            </li>
+        }
+    </ul>
+}
+
+@if (Model.MonthAgo.Any())
+{
+    <ul>
+        <li>
+            <h3>
+                That a month ago this happened
+            </h3>
+        </li>
+        @foreach (var photo in Model.MonthAgo)
+        {
+            <li>
+                <p>@photo.Description</p>
+                <img src="@photo.FullUrl" />
+            </li>
+        }
+    </ul>
+}
+
+@if (Model.SixMonthsAgo.Any())
+{
+    <ul>
+        <li>
+            <h3>
+                That a six months ago this happened
+            </h3>
+        </li>
+        @foreach (var photo in Model.SixMonthsAgo)
+        {
+            <li>
+                <p>@photo.Description</p>
+                <img src="@photo.FullUrl" />
+            </li>
+        }
+    </ul>
+}
+
+@if (Model.YearAgo.Any())
+{
+    <ul>
+        <li>
+            <h3>
+                That a year ago this happened
+            </h3>
+        </li>
+        @foreach (var photo in Model.YearAgo)
+        {
+            <li>
+                <p>@photo.Description</p>
+                <img src="@photo.FullUrl" />
+            </li>
+        }
+    </ul>
+}
