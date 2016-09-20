@@ -89,21 +89,39 @@ namespace BrokkAndOdin.Controllers
 	    [Route("RememberWhen")]
 	    public ActionResult RememberWhen()
 	    {
+	        var viewModel = GetMemoriesViewModel();
+
+	        return View(viewModel);
+	    }
+
+	    private RememberWhenViewModel GetMemoriesViewModel()
+	    {
 	        var weekAgo = DateTime.Now.Date.AddDays(-7);
-            var monthAgo = DateTime.Now.Date.AddMonths(-1);
-            var sixMonthsAgo = DateTime.Now.Date.AddMonths(-6);
-            var yearAgo = DateTime.Now.Date.AddYears(-1);
+	        var monthAgo = DateTime.Now.Date.AddMonths(-1);
+	        var sixMonthsAgo = DateTime.Now.Date.AddMonths(-6);
+	        var yearAgo = DateTime.Now.Date.AddYears(-1);
 
 	        var viewModel = new RememberWhenViewModel
 	        {
-                WeekAgo = pictureRepo.SearchPhotos(null, weekAgo, weekAgo.AddDays(1)),
-                MonthAgo = pictureRepo.SearchPhotos(null, monthAgo, monthAgo.AddDays(1)),
-                SixMonthsAgo = pictureRepo.SearchPhotos(null, sixMonthsAgo, sixMonthsAgo.AddDays(1)),
-                YearAgo = pictureRepo.SearchPhotos(null, yearAgo, yearAgo.AddDays(1))
+	            WeekAgo = pictureRepo.SearchPhotos(null, weekAgo, weekAgo.AddDays(1)),
+	            MonthAgo = pictureRepo.SearchPhotos(null, monthAgo, monthAgo.AddDays(1)),
+	            SixMonthsAgo = pictureRepo.SearchPhotos(null, sixMonthsAgo, sixMonthsAgo.AddDays(1)),
+	            YearAgo = pictureRepo.SearchPhotos(null, yearAgo, yearAgo.AddDays(1))
 	        };
+	        return viewModel;
+	    }
 
+	    [HttpPost]
+	    [Route("AnyMemories")]
+	    public JsonResult AnyMemories()
+	    {
+	        var model = GetMemoriesViewModel();
+	        if (model.YearAgo.Any() || model.WeekAgo.Any() || model.SixMonthsAgo.Any() || model.MonthAgo.Any())
+	        {
+	            return Json(true);
+	        }
 
-	        return View(viewModel);
+            return Json(null);
 	    }
 
         private void ConvertQueryStringParametersToViewModel(string q, GalleryViewModel viewModel)

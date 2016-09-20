@@ -54,6 +54,10 @@ body nav .title a {
 body nav > div:last-child {
   text-align: right;
 }
+body nav .fa-exclamation-circle {
+  color: #339933;
+  margin-top: 3px;
+}
 body video {
   max-width: 100%;
 }

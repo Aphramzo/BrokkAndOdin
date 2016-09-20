@@ -2,14 +2,14 @@ nav {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
-ul {
+.member-when ul {
   list-style-type: none;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.33);
   margin: 0px -15px;
   border-radius: 10px;
 }
-ul li {
+.member-when ul li {
   font-size: 1em;
   letter-spacing: .05em;
   font-family: 'Trebuchet MS', 'Myriad Pro', Arial, sans-serif;
@@ -19,11 +19,14 @@ ul li {
   color: #B0B0B0;
   margin-top: 10px;
 }
-ul li h3 {
+.member-when ul li h3 {
   text-transform: none;
   color: #D0D0D0;
   margin-top: 40px;
 }
-ul li p {
+.member-when ul li p {
   margin-bottom: 5px;
+}
+.member-when ul li img {
+  max-width: 100%;
 }
