@@ -24,5 +24,6 @@ namespace BrokkAndOdin
         public static string SiteTitle { get { return ConfigurationManager.AppSettings["SiteTitle"]; } }
 
         public static bool ShowAge { get { return Convert.ToBoolean(ConfigurationManager.AppSettings["ShowAge"]); } }
+        public static string AppInsightsIKey { get { return ConfigurationManager.AppSettings["iKey"]; } }
 	}
 }

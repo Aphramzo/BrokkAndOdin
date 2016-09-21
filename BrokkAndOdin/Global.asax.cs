@@ -18,7 +18,9 @@ namespace BrokkAndOdin
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 			MappingConfig.RegisterMappings();
-			UnityConfig.RegisterComponents(); 
+			UnityConfig.RegisterComponents();
+            Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration.Active.InstrumentationKey =
+                AppConfig.AppInsightsIKey;
         }
 
 		protected void Application_BeginRequest()
