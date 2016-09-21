@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BrokkAndOdin.Repos.interfaces;
 using BrokkAndOdin.ViewModels;
 using StackExchange.Profiling;
 
@@ -13,11 +14,13 @@ namespace BrokkAndOdin.Controllers
 	{
 		private readonly IPictureRepo pictureRepo;
 		private readonly IUpdateRepo updateRepo;
+	    private readonly ICacheRepo cacheRepo;
 
-		public HomeController(IPictureRepo _pictureRepo, IUpdateRepo _updateRepo)
+		public HomeController(IPictureRepo _pictureRepo, IUpdateRepo _updateRepo, ICacheRepo _cacheRepo)
 		{
 			pictureRepo = _pictureRepo;
 			updateRepo = _updateRepo;
+		    cacheRepo = _cacheRepo;
 		}
 
 		[HttpGet]
@@ -96,6 +99,13 @@ namespace BrokkAndOdin.Controllers
 
 	    private RememberWhenViewModel GetMemoriesViewModel()
 	    {
+	        var cacheName = string.Format("rememberWhen{0}", DateTime.Now.Date);
+	        var cachedModel = cacheRepo.Get<RememberWhenViewModel>(cacheName);
+	        if (cachedModel != null)
+	        {
+	            return cachedModel;
+	        }
+
 	        var weekAgo = DateTime.Now.Date.AddDays(-7);
 	        var monthAgo = DateTime.Now.Date.AddMonths(-1);
 	        var sixMonthsAgo = DateTime.Now.Date.AddMonths(-6);
@@ -108,6 +118,10 @@ namespace BrokkAndOdin.Controllers
 	            SixMonthsAgo = pictureRepo.SearchPhotos(null, sixMonthsAgo, sixMonthsAgo.AddDays(1)),
 	            YearAgo = pictureRepo.SearchPhotos(null, yearAgo, yearAgo.AddDays(1))
 	        };
+
+            //might as well cache it for a full day since it only changes every 24 hours by definition
+            cacheRepo.Add(viewModel, cacheName, 1000*60*60*24);
+
 	        return viewModel;
 	    }
 
