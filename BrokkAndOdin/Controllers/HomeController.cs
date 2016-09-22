@@ -154,7 +154,12 @@ namespace BrokkAndOdin.Controllers
                         viewModel.StartDate = Convert.ToDateTime(paramValue[1]);
                         break;
                     case "e":
-                        viewModel.EndDate = Convert.ToDateTime(paramValue[1]);
+                        //I'm not sure where it's coming from, but it appears someone has a bad querystring for filtering the pictures, 
+                        //and it contains a bad date. Lets just ignore it if that is the case
+                        try { viewModel.EndDate = Convert.ToDateTime(paramValue[1]); }
+                        catch (Exception e) { //swallow
+                        }
+                        
                         break;
                 }
             }
