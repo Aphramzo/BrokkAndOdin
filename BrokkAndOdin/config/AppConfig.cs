@@ -25,5 +25,6 @@ namespace BrokkAndOdin
 
         public static bool ShowAge { get { return Convert.ToBoolean(ConfigurationManager.AppSettings["ShowAge"]); } }
         public static string AppInsightsIKey { get { return ConfigurationManager.AppSettings["iKey"]; } }
+        public static string Favicon { get { return ConfigurationManager.AppSettings["Favicon"]; } }
 	}
 }

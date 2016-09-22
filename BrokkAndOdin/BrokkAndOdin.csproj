@@ -257,12 +257,13 @@
     <Content Include="Content\Stylesheets\rememberWhen.css" />
     <Content Include="Content\Stylesheets\site.css" />
     <Content Include="Content\Stylesheets\video.css" />
-    <Content Include="favicon.ico" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Gruntfile.js" />
     <Content Include="images\ajax-loader.gif" />
     <Content Include="images\dark-blackboard.png" />
+    <Content Include="images\favicons\brokkandodin.ico" />
+    <Content Include="images\favicons\keira.ico" />
     <Content Include="images\FullView.png" />
     <Content Include="images\ThumbView.png" />
     <Content Include="images\views.png" />
@@ -390,7 +391,9 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Gallery.cshtml" />
