@@ -30,3 +30,6 @@ nav {
 .member-when ul li img {
   max-width: 100%;
 }
+.member-when ul li video {
+  width: 100%;
+}
