@@ -99,17 +99,17 @@ namespace BrokkAndOdin.Controllers
 
 	    private RememberWhenViewModel GetMemoriesViewModel()
 	    {
-	        var cacheName = string.Format("rememberWhen{0}", DateTime.Now.AddHours(3).Date);
+	        var cacheName = string.Format("rememberWhen{0}", DateTime.Now.Date);
 	        var cachedModel = cacheRepo.Get<RememberWhenViewModel>(cacheName);
-            //if (cachedModel != null)
-            //{
-            //    return cachedModel;
-            //}
+            if (cachedModel != null)
+            {
+                return cachedModel;
+            }
 
-            var weekAgo = DateTime.Now.AddHours(3).Date.AddDays(-7);
-            var monthAgo = DateTime.Now.AddHours(3).Date.AddMonths(-1);
-            var sixMonthsAgo = DateTime.Now.AddHours(3).Date.AddMonths(-6);
-            var yearAgo = DateTime.Now.AddHours(3).Date.AddYears(-1);
+            var weekAgo = DateTime.Now.Date.AddDays(-7);
+            var monthAgo = DateTime.Now.Date.AddMonths(-1);
+            var sixMonthsAgo = DateTime.Now.Date.AddMonths(-6);
+            var yearAgo = DateTime.Now.Date.AddYears(-1);
 
 	        var viewModel = new RememberWhenViewModel
 	        {
