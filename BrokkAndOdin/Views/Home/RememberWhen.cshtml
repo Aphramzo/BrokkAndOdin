@@ -54,7 +54,16 @@
             {
                 <li>
                     <p>@photo.Description</p>
-                    <img src="@photo.FullUrl" />
+                    @if (photo.HasVideo)
+                    {
+                        <video controls poster="@photo.FullUrl">
+                            <source src="@photo.VideoUrl" type="video/mp4">
+                        </video>
+                    }
+                    else
+                    {
+                        <img src="@photo.FullUrl" />
+                    }
                 </li>
             }
         </ul>
@@ -72,7 +81,16 @@
             {
                 <li>
                     <p>@photo.Description</p>
-                    <img src="@photo.FullUrl" />
+                    @if (photo.HasVideo)
+                    {
+                        <video controls poster="@photo.FullUrl">
+                            <source src="@photo.VideoUrl" type="video/mp4">
+                        </video>
+                    }
+                    else
+                    {
+                        <img src="@photo.FullUrl" />
+                    }
                 </li>
             }
         </ul>
