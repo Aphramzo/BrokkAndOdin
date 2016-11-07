@@ -14,112 +14,33 @@
 }
 
 <section class="member-when">
-
-    @if (Model.WeekAgo.Any())
+    @foreach (var period in Model.TimePeriods)
     {
-        <ul>
-            <li>
-                <h3>
-                    That a week ago this happened
-                </h3>
-            </li>
-            @foreach (var photo in Model.WeekAgo)
-            {
+        if (period.Photos.Any())
+        {
+            <ul>
                 <li>
-                    <p>@photo.Description</p>
-                    @if (photo.HasVideo)
-                    {
-                        <video controls poster="@photo.FullUrl">
-                            <source src="@photo.VideoUrl" type="video/mp4">
-                        </video>
-                    }
-                    else
-                    {
-                        <img src="@photo.FullUrl" />
-                    }
+                    <h3>
+                        @period.Description
+                    </h3>
                 </li>
-            }
-        </ul>
-    }
-
-    @if (Model.MonthAgo.Any())
-    {
-        <ul>
-            <li>
-                <h3>
-                    That a month ago this happened
-                </h3>
-            </li>
-            @foreach (var photo in Model.MonthAgo)
-            {
-                <li>
-                    <p>@photo.Description</p>
-                    @if (photo.HasVideo)
-                    {
-                        <video controls poster="@photo.FullUrl">
-                            <source src="@photo.VideoUrl" type="video/mp4">
-                        </video>
-                    }
-                    else
-                    {
-                        <img src="@photo.FullUrl" />
-                    }
-                </li>
-            }
-        </ul>
-    }
-
-    @if (Model.SixMonthsAgo.Any())
-    {
-        <ul>
-            <li>
-                <h3>
-                    That a six months ago this happened
-                </h3>
-            </li>
-            @foreach (var photo in Model.SixMonthsAgo)
-            {
-                <li>
-                    <p>@photo.Description</p>
-                    @if (photo.HasVideo)
-                    {
-                        <video controls poster="@photo.FullUrl">
-                            <source src="@photo.VideoUrl" type="video/mp4">
-                        </video>
-                    }
-                    else
-                    {
-                        <img src="@photo.FullUrl" />
-                    }
-                </li>
-            }
-        </ul>
-    }
-
-    @if (Model.YearAgo.Any())
-    {
-        <ul>
-            <li>
-                <h3>
-                    That a year ago this happened
-                </h3>
-            </li>
-            @foreach (var photo in Model.YearAgo)
-            {
-                <li>
-                    <p>@photo.Description</p>
-                    @if (photo.HasVideo)
-                    {
-                        <video controls poster="@photo.FullUrl">
-                            <source src="@photo.VideoUrl" type="video/mp4">
-                        </video>
-                    }
-                    else
-                    {
-                        <img src="@photo.FullUrl" />
-                    }
-                </li>
-            }
-        </ul>
+                @foreach (var photo in period.Photos)
+                {
+                    <li>
+                        <p>@photo.Description</p>
+                        @if (photo.HasVideo)
+                        {
+                            <video controls poster="@photo.FullUrl">
+                                <source src="@photo.VideoUrl" type="video/mp4">
+                            </video>
+                        }
+                        else
+                        {
+                            <img src="@photo.FullUrl" />
+                        }
+                    </li>
+                }
+            </ul>
+        }
     }
 </section>

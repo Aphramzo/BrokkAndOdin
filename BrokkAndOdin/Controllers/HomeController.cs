@@ -106,19 +106,49 @@ namespace BrokkAndOdin.Controllers
                 return cachedModel;
             }
 
-            var weekAgo = DateTime.Now.Date.AddDays(-7);
-            var monthAgo = DateTime.Now.Date.AddMonths(-1);
-            var sixMonthsAgo = DateTime.Now.Date.AddMonths(-6);
-            var yearAgo = DateTime.Now.Date.AddYears(-1);
+	        var date = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.UtcNow, "Mountain Standard Time");
 
-	        var viewModel = new RememberWhenViewModel
+            var weekAgo = date.Date.AddDays(-7);
+            var monthAgo = date.Date.AddMonths(-1);
+            var sixMonthsAgo = date.Date.AddMonths(-6);
+            //TODO: at this point just loop here instead of explicitly doing this
+            var yearAgo = date.Date.AddYears(-1);
+	        var twoYearsAgo = date.Date.AddYears(-2);
+	        var threeYearsAgo = date.Date.AddYears(-3);
+
+	        var viewModel = new RememberWhenViewModel();
+	        
+	        viewModel.TimePeriods.Add(new RememberWhenTimePeriodViewModel
 	        {
-	            WeekAgo = pictureRepo.SearchPhotos(null, weekAgo, weekAgo.AddDays(1)),
-	            MonthAgo = pictureRepo.SearchPhotos(null, monthAgo, monthAgo.AddDays(1)),
-	            SixMonthsAgo = pictureRepo.SearchPhotos(null, sixMonthsAgo, sixMonthsAgo.AddDays(1)),
-	            YearAgo = pictureRepo.SearchPhotos(null, yearAgo, yearAgo.AddDays(1))
-	        };
-
+	           Photos = pictureRepo.SearchPhotos(null, weekAgo, weekAgo.AddDays(1)),
+               Description = "That a week ago this happened"
+	        });
+            viewModel.TimePeriods.Add(new RememberWhenTimePeriodViewModel
+	        {
+               Photos = pictureRepo.SearchPhotos(null, monthAgo, monthAgo.AddDays(1)),
+               Description = "That a month ago this happened"
+	        });
+            viewModel.TimePeriods.Add(new RememberWhenTimePeriodViewModel
+	        {
+                Photos = pictureRepo.SearchPhotos(null, sixMonthsAgo, sixMonthsAgo.AddDays(1)),
+               Description = "That a six months ago this happened"
+	        });
+            viewModel.TimePeriods.Add(new RememberWhenTimePeriodViewModel
+	        {
+                Photos = pictureRepo.SearchPhotos(null, yearAgo, yearAgo.AddDays(1)),
+               Description = "That a year ago this happened"
+	        });
+            viewModel.TimePeriods.Add(new RememberWhenTimePeriodViewModel
+	        {
+                Photos = pictureRepo.SearchPhotos(null, twoYearsAgo, twoYearsAgo.AddDays(1)),
+               Description = "That a two years ago this happened"
+	        });
+            viewModel.TimePeriods.Add(new RememberWhenTimePeriodViewModel
+	        {
+                Photos = pictureRepo.SearchPhotos(null, threeYearsAgo, threeYearsAgo.AddDays(1)),
+               Description = "That a three years ago this happened"
+	        });
+	     
             //might as well cache it for a full day since it only changes every 24 hours by definition
             cacheRepo.Add(viewModel, cacheName, 1000*60*60*24);
 
@@ -130,9 +160,12 @@ namespace BrokkAndOdin.Controllers
 	    public JsonResult AnyMemories()
 	    {
 	        var model = GetMemoriesViewModel();
-	        if (model.YearAgo.Any() || model.WeekAgo.Any() || model.SixMonthsAgo.Any() || model.MonthAgo.Any())
+	        foreach (var period in model.TimePeriods)
 	        {
-	            return Json(true);
+	            if (period.Photos.Any())
+	            {
+	                return Json(true);
+	            }
 	        }
 
             return Json(null);

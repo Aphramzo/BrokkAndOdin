@@ -10,14 +10,15 @@ namespace BrokkAndOdin.ViewModels
     {
         public RememberWhenViewModel()
         {
-            WeekAgo = new List<Photo>();
-            MonthAgo = new List<Photo>();
-            SixMonthsAgo = new List<Photo>();
-            YearAgo = new List<Photo>();
+            TimePeriods = new List<RememberWhenTimePeriodViewModel>();
         }
-        public IList<Photo> WeekAgo { get; set; }
-        public IList<Photo> MonthAgo { get; set; }
-        public IList<Photo> SixMonthsAgo { get; set; }
-        public IList<Photo> YearAgo { get; set; } 
+
+        public IList<RememberWhenTimePeriodViewModel> TimePeriods { get; set; } 
+    }
+
+    public class RememberWhenTimePeriodViewModel
+    {
+        public IList<Photo> Photos { get; set; }
+        public string Description { get; set; }
     }
 }

@@ -83,6 +83,11 @@ namespace BrokkAndOdin.Models
 			}
 		}
 
+	    public int AgeInYears
+	    {
+	        get { return Age.Years; }
+	    }
+
 		public string AgeString
 		{
 			get
@@ -91,8 +96,10 @@ namespace BrokkAndOdin.Models
 					return String.Format("{0} days old", AgeInDays);
 				else if (AgeInWeeks < 10)
 					return String.Format("{0} weeks old", AgeInWeeks);
+				else if (AgeInMonths < 24)
+				    return String.Format("{0} months old", AgeInMonths);
 				else
-					return String.Format("{0} months old", AgeInMonths);
+				    return String.Format("{0} years old", AgeInYears);
 			}
 		}
 
