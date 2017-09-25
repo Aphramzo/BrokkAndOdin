@@ -27,7 +27,7 @@
                 @foreach (var photo in period.Photos)
                 {
                     <li>
-                        <p>@photo.Description</p>
+                        <p>@photo.TitleNoDate</p>
                         @if (photo.HasVideo)
                         {
                             <video controls poster="@photo.FullUrl">

@@ -48,6 +48,23 @@ namespace BrokkAndOdin.Models
 			}
 		}
 
+	    public string TitleNoDate
+	    {
+	        get
+	        {
+	            if (!String.IsNullOrEmpty(Description) && AppConfig.ShowAge)
+	            {
+	                return String.Format("{0} ({1})", Description, AgeString);
+	            }
+	            else if (!String.IsNullOrEmpty(Description))
+	            {
+	                return Description;
+	            }
+
+	            return String.Format("{0}", AgeString);
+	        }
+	    }
+
 		public DateDiff Age
 		{
 			get

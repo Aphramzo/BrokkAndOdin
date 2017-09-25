@@ -134,22 +134,6 @@ namespace BrokkAndOdin.Controllers
           
 	        }
           
-            //viewModel.TimePeriods.Add(new RememberWhenTimePeriodViewModel
-            //{
-            //    Photos = pictureRepo.SearchPhotos(null, yearAgo, yearAgo.AddDays(1)),
-            //   Description = "That a year ago this happened"
-            //});
-            //viewModel.TimePeriods.Add(new RememberWhenTimePeriodViewModel
-            //{
-            //    Photos = pictureRepo.SearchPhotos(null, twoYearsAgo, twoYearsAgo.AddDays(1)),
-            //   Description = "That a two years ago this happened"
-            //});
-            //viewModel.TimePeriods.Add(new RememberWhenTimePeriodViewModel
-            //{
-            //    Photos = pictureRepo.SearchPhotos(null, threeYearsAgo, threeYearsAgo.AddDays(1)),
-            //   Description = "That a three years ago this happened"
-            //});
-	     
             //might as well cache it for a full day since it only changes every 24 hours by definition
             cacheRepo.Add(viewModel, cacheName, 1000*60*60*24);
 
