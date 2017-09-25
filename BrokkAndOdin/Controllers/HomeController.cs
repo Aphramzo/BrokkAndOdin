@@ -108,51 +108,72 @@ namespace BrokkAndOdin.Controllers
 
 	        var date = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.UtcNow, "Mountain Standard Time");
 
-            var weekAgo = date.Date.AddDays(-7);
             var monthAgo = date.Date.AddMonths(-1);
-            var sixMonthsAgo = date.Date.AddMonths(-6);
-            //TODO: at this point just loop here instead of explicitly doing this
-            var yearAgo = date.Date.AddYears(-1);
-	        var twoYearsAgo = date.Date.AddYears(-2);
-	        var threeYearsAgo = date.Date.AddYears(-3);
-
 	        var viewModel = new RememberWhenViewModel();
-	        
+
 	        viewModel.TimePeriods.Add(new RememberWhenTimePeriodViewModel
 	        {
-	           Photos = pictureRepo.SearchPhotos(null, weekAgo, weekAgo.AddDays(1)),
-               Description = "That a week ago this happened"
+	            Photos = pictureRepo.SearchPhotos(null, monthAgo, monthAgo.AddDays(1)),
+	            Description = "That a month ago this happened"
 	        });
-            viewModel.TimePeriods.Add(new RememberWhenTimePeriodViewModel
+        
+
+            var ageInMonths = (DateTime.Now.Month - AppConfig.Birthdate.Month) + 12 * (DateTime.Now.Year - AppConfig.Birthdate.Year);
+	        var countdownAge = ageInMonths;
+            while (countdownAge > 0)
 	        {
-               Photos = pictureRepo.SearchPhotos(null, monthAgo, monthAgo.AddDays(1)),
-               Description = "That a month ago this happened"
-	        });
-            viewModel.TimePeriods.Add(new RememberWhenTimePeriodViewModel
-	        {
-                Photos = pictureRepo.SearchPhotos(null, sixMonthsAgo, sixMonthsAgo.AddDays(1)),
-               Description = "That a six months ago this happened"
-	        });
-            viewModel.TimePeriods.Add(new RememberWhenTimePeriodViewModel
-	        {
-                Photos = pictureRepo.SearchPhotos(null, yearAgo, yearAgo.AddDays(1)),
-               Description = "That a year ago this happened"
-	        });
-            viewModel.TimePeriods.Add(new RememberWhenTimePeriodViewModel
-	        {
-                Photos = pictureRepo.SearchPhotos(null, twoYearsAgo, twoYearsAgo.AddDays(1)),
-               Description = "That a two years ago this happened"
-	        });
-            viewModel.TimePeriods.Add(new RememberWhenTimePeriodViewModel
-	        {
-                Photos = pictureRepo.SearchPhotos(null, threeYearsAgo, threeYearsAgo.AddDays(1)),
-               Description = "That a three years ago this happened"
-	        });
+                countdownAge = countdownAge - 6;
+	            if (countdownAge < 0)
+	                continue;
+	            var searchDate = date.Date.AddMonths(countdownAge - ageInMonths);
+	            viewModel.TimePeriods.Add(new RememberWhenTimePeriodViewModel
+	            {
+	                Photos = pictureRepo.SearchPhotos(null, searchDate, searchDate.AddDays(1)),
+	                Description = string.Format("That {0} {1} ago this happened", GetYearsAgoString(searchDate), GetMonthsAgoString(searchDate))
+	            });
+          
+	        }
+          
+            //viewModel.TimePeriods.Add(new RememberWhenTimePeriodViewModel
+            //{
+            //    Photos = pictureRepo.SearchPhotos(null, yearAgo, yearAgo.AddDays(1)),
+            //   Description = "That a year ago this happened"
+            //});
+            //viewModel.TimePeriods.Add(new RememberWhenTimePeriodViewModel
+            //{
+            //    Photos = pictureRepo.SearchPhotos(null, twoYearsAgo, twoYearsAgo.AddDays(1)),
+            //   Description = "That a two years ago this happened"
+            //});
+            //viewModel.TimePeriods.Add(new RememberWhenTimePeriodViewModel
+            //{
+            //    Photos = pictureRepo.SearchPhotos(null, threeYearsAgo, threeYearsAgo.AddDays(1)),
+            //   Description = "That a three years ago this happened"
+            //});
 	     
             //might as well cache it for a full day since it only changes every 24 hours by definition
             cacheRepo.Add(viewModel, cacheName, 1000*60*60*24);
 
 	        return viewModel;
+	    }
+
+	    private string GetMonthsAgoString(DateTime searchDate)
+	    {
+            var months = DateTime.Now.Month - searchDate.Month;
+	        if (months == 0)
+	            return string.Empty;
+
+	        return string.Format("{0} months", months);
+	    }
+
+	    private string GetYearsAgoString(DateTime searchDate)
+	    {
+            var years = DateTime.Now.Year - searchDate.Year;
+	        if (years == 0)
+	            return string.Empty;
+	        if (years == 1)
+	            return "1 year";
+
+	        return string.Format("{0} years", years);
 	    }
 
 	    [HttpPost]
